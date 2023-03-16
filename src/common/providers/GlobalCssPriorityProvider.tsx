@@ -1,12 +1,12 @@
 import { StyledEngineProvider } from "@mui/material/styles";
 import { ReactNode } from "react";
 
-interface GlobalCssPriorityProps {
+interface GlobalCssPriorityProviderProps {
   children: ReactNode;
 }
 
-export default function GlobalCssPriority({
+export default function GlobalCssPriorityProvider({
   children,
-}: GlobalCssPriorityProps) {
+}: GlobalCssPriorityProviderProps) {
   return <StyledEngineProvider injectFirst>{children}</StyledEngineProvider>;
 }

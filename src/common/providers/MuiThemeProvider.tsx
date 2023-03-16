@@ -16,7 +16,7 @@ declare module "@mui/material/styles" {
   }
 }
 
-interface MuiThemeProps {
+interface MuiThemeProviderProps {
   children: ReactNode;
 }
 
@@ -40,6 +40,6 @@ const theme = createTheme({
   },
 });
 
-export default function MuiTheme({ children }: MuiThemeProps) {
+export default function MuiThemeProvider({ children }: MuiThemeProviderProps) {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

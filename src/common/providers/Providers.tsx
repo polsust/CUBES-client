@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import GlobalCssPriority from "./GlobalCssPriority";
-import MuiTheme from "./MuiTheme";
+import GlobalCssPriorityProvider from "./GlobalCssPriorityProvider";
+import MuiThemeProvider from "./MuiThemeProvider";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -8,8 +8,8 @@ interface ProvidersProps {
 
 export default function Providers({ children }: ProvidersProps) {
   return (
-    <GlobalCssPriority>
-      <MuiTheme>{children}</MuiTheme>
-    </GlobalCssPriority>
+    <GlobalCssPriorityProvider>
+      <MuiThemeProvider>{children}</MuiThemeProvider>
+    </GlobalCssPriorityProvider>
   );
 }
