@@ -1,10 +1,7 @@
-import React, { ReactNode } from "react";
+import ChildrenProps from "@cubes/common/types/ChildrenProps";
+import React from "react";
 import MediaQuery from "react-responsive";
 
-interface MobileProps {
-  children: ReactNode;
-}
-
-export default function Mobile({ children }: MobileProps) {
+export default function Mobile({ children }: ChildrenProps) {
   return <MediaQuery maxWidth={600}>{children}</MediaQuery>;
 }

@@ -1,13 +1,10 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import ChildrenProps from "../types/ChildrenProps";
 import GlobalCssPriorityProvider from "./GlobalCssPriorityProvider";
 import MuiThemeProvider from "./MuiThemeProvider";
 import ReactQueryProvider from "./ReactQueryProvider";
 
-interface ProvidersProps {
-  children: ReactNode;
-}
-
-export default function Providers({ children }: ProvidersProps) {
+export default function Providers({ children }: ChildrenProps) {
   return (
     <ReactQueryProvider>
       <GlobalCssPriorityProvider>

@@ -1,6 +1,7 @@
 import { COLORS } from "@cubes/common/constants";
 import { createTheme, ThemeProvider } from "@mui/material";
 import React, { ReactNode } from "react";
+import ChildrenProps from "../types/ChildrenProps";
 
 declare module "@mui/material/styles" {
   interface Theme {
@@ -14,10 +15,6 @@ declare module "@mui/material/styles" {
       danger?: string;
     };
   }
-}
-
-interface MuiThemeProviderProps {
-  children: ReactNode;
 }
 
 const theme = createTheme({
@@ -40,6 +37,6 @@ const theme = createTheme({
   },
 });
 
-export default function MuiThemeProvider({ children }: MuiThemeProviderProps) {
+export default function MuiThemeProvider({ children }: ChildrenProps) {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

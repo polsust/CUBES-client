@@ -1,10 +1,7 @@
-import React, { ReactNode } from "react";
+import ChildrenProps from "@cubes/common/types/ChildrenProps";
+import React from "react";
 import MediaQuery from "react-responsive";
 
-interface DesktopProps {
-  children: ReactNode;
-}
-
-export default function Desktop({ children }: DesktopProps) {
+export default function Desktop({ children }: ChildrenProps) {
   return <MediaQuery minWidth={1200}></MediaQuery>;
 }
