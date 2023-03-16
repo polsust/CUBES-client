@@ -1,4 +1,4 @@
-import { COLORS } from "@common/constants";
+import { COLORS } from "@cubes/common/constants";
 import { createTheme, ThemeProvider } from "@mui/material";
 import React, { ReactNode } from "react";
 
