@@ -1,6 +1,6 @@
 import BottomTabs from "@cubes/common/components/BottomTabs";
 import Mobile from "@cubes/common/components/MediaQueries/Mobile";
-import "@cubes/common/styles/globals.css";
+import "@cubes/common/styles/globals.scss";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
