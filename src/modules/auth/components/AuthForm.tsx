@@ -2,6 +2,7 @@ import { required } from "@cubes/common/helpers/form";
 import { Button, Form, Input } from "antd";
 import { useRouter } from "next/router";
 import { style } from "../styles/AuthForm.style";
+import { ROUTES } from "@cubes/common/constants";
 
 interface AuthFormProps {
   isLogin: boolean;
@@ -68,7 +69,7 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
           color="secondary"
           type="dashed"
           onClick={() => {
-            router.push(isLogin ? "/inscription" : "/connexion");
+            router.push(isLogin ? ROUTES.login : ROUTES.signup);
           }}
         >
           {switchBtnTxt}
