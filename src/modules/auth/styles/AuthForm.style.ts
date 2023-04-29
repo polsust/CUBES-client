@@ -5,4 +5,7 @@ export const style = css`
     color: white !important;
     font-weight: 600;
   }
+  .ant-form-item{
+    width: 100%;
+  }
 `;
