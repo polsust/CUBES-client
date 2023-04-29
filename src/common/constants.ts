@@ -4,7 +4,7 @@ export const COLORS = {
   info: "#738BD7",
 };
 
-export const ROUTES = {
-  login: "connexion",
-  signup: "inscription",
-};
+export enum ROUTES {
+  login = "connexion",
+  signup = "inscription",
+}
