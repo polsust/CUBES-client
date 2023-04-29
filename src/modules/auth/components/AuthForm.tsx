@@ -50,7 +50,12 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
   const switchBtnTxt = isLogin ? "S'inscrire" : "Se connecter";
 
   return (
-    <Form onFinish={onFinish} css={style} layout="vertical">
+    <Form
+      onFinish={onFinish}
+      css={style}
+      layout="vertical"
+      className={`${isLogin ? "w-1/4" : "w-1/3"}`}
+    >
       <div className="flex flex-col space-y-5 bg-secondary text-white rounded-xl p-8 h-auto">
         <h1 className="text-center text-4xl">{title}</h1>
         {renderConditionalFields()}
