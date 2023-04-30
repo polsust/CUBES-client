@@ -1,33 +1,33 @@
-import { BottomNavigation, BottomNavigationAction } from "@mui/material";
-import React, { useState } from "react";
+import {
+  faHouse,
+  faPlusSquare,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Tabs } from "antd";
+import { bottomTabsStyle } from "../styles/BottomTabs.style";
 
-interface BottomTabsProps {}
+interface BottomTabsProps { }
 
-export default function BottomTabs({}: BottomTabsProps) {
-  const [value, setValue] = useState("recents");
-
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
-
+export default function BottomTabs({ }: BottomTabsProps) {
   return (
-    <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
-      <BottomNavigationAction
-        label="Recents"
-        value="recents"
-        // icon={}
-      />
-      <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
-        // icon={<FavoriteIcon />}
-      />
-      <BottomNavigationAction
-        label="Nearby"
-        value="nearby"
-        // icon={<LocationOnIcon />}
-      />
-      <BottomNavigationAction label="Folder" value="folder" />
-    </BottomNavigation>
+    <Tabs
+      className="absolute bottom-0 w-full flex bg-secondary text-white"
+      css={bottomTabsStyle}
+      items={[
+        {
+          key: "1",
+          label: <FontAwesomeIcon icon={faHouse} size="3x" />,
+        },
+        {
+          key: "2",
+          label: <FontAwesomeIcon icon={faPlusSquare} size="3x" />,
+        },
+        {
+          key: "3",
+          label: <FontAwesomeIcon icon={faUser} size="3x" />,
+        },
+      ]}
+    />
   );
 }
