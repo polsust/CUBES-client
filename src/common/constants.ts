@@ -5,6 +5,6 @@ export const COLORS = {
 };
 
 export enum ROUTES {
-  login = "connexion",
-  signup = "inscription",
+  login = "/connexion",
+  signup = "/inscription",
 }
