@@ -3,6 +3,7 @@ import { Button, Form, Input } from "antd";
 import { useRouter } from "next/router";
 import { style } from "../styles/AuthForm.style";
 import { ROUTES } from "@cubes/common/constants";
+import { Configuration, UserApi } from "cubes-api-client";
 
 interface AuthFormProps {
   isLogin: boolean;
@@ -11,7 +12,33 @@ interface AuthFormProps {
 export default function AuthForm({ isLogin }: AuthFormProps) {
   const router = useRouter();
 
-  const onFinish = (data: any) => {
+
+  const onFinish = async (data: unknown) => {
+    const configuration = new Configuration({
+      basePath: "https://localhost:5001",
+    });
+    const userService = new UserApi(configuration);
+
+    const res = await userService.apiUserPost({
+      fName: "string",
+      lName: "string",
+      email: "polsust@gmail.com",
+      password: "string",
+      login: "string",
+      // activation: true,
+      // creationDate: "2023-04-30T09:18:13.461Z",
+      role: {
+        id_role: 0,
+        name: "string",
+        activated: true,
+      },
+      idRole: 0,
+    });
+
+    // await userService.apiUserGetUserIdGet(1);
+
+    // console.log(user);
+
     console.log(data);
   };
 
@@ -56,8 +83,8 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
       layout="vertical"
       className={`${isLogin ? "md:w-1/4" : "md:w-1/3"} min-w-min w-full`}
     >
-      <div className="flex flex-col space-y-5 bg-secondary text-white md:rounded-xl p-8 h-auto">
-        <h1 className="text-center text-4xl">{title}</h1>
+      <div className="flex flex-col p-8 space-y-5 h-auto text-white md:rounded-xl bg-secondary">
+        <h1 className="text-4xl text-center">{title}</h1>
         {renderConditionalFields()}
 
         <Form.Item name="password" label="Mot de passe" rules={[required]}>
@@ -65,7 +92,7 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
         </Form.Item>
       </div>
 
-      <div className="flex space-x-10 justify-center mt-10">
+      <div className="flex justify-center mt-10 space-x-10">
         <Button htmlType="submit" type="primary" size="large">
           {submitBtnTxt}
         </Button>
