@@ -54,9 +54,9 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
       onFinish={onFinish}
       css={style}
       layout="vertical"
-      className={`${isLogin ? "w-1/4" : "w-1/3"}`}
+      className={`${isLogin ? "md:w-1/4" : "md:w-1/3"} min-w-min w-full`}
     >
-      <div className="flex flex-col space-y-5 bg-secondary text-white rounded-xl p-8 h-auto">
+      <div className="flex flex-col space-y-5 bg-secondary text-white md:rounded-xl p-8 h-auto">
         <h1 className="text-center text-4xl">{title}</h1>
         {renderConditionalFields()}
 
@@ -72,7 +72,8 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
         <Button
           size="large"
           color="secondary"
-          type="dashed"
+          type="link"
+          className="bg-white"
           onClick={() => {
             router.push(isLogin ? ROUTES.signup : ROUTES.login);
           }}
