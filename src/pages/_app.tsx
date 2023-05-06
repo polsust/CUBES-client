@@ -11,21 +11,15 @@ import AuthInterceptor from "@cubes/modules/auth/components/AuthInterceptor";
 import Desktop from "@cubes/common/components/MediaQueries/Desktop";
 import Header from "@cubes/common/components/Header";
 import Footer from "@cubes/common/components/Footer";
-import { RessourceApiFp } from "cubes-api-client";
 
 export default function App({ Component, pageProps }: AppProps) {
-
-
-  // RessourceApiFp().
-
-
   return (
     <Providers>
       <AuthInterceptor>
         <Desktop>
           <Header />
         </Desktop>
-        <div className="flex justify-center items-center w-full h-screen bg-primary">
+        <div className="flex relative flex-col justify-center items-center pt-40 pb-32 w-full min-h-screen bg-primary">
           <Component {...pageProps} />
         </div>
 
