@@ -55,10 +55,10 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
           </Form.Item>
 
           <div className="flex space-x-5 [&>*]:mb-0">
-            <Form.Item name="first_name" label="Prénom" rules={[required]}>
+            <Form.Item name="fName" label="Prénom" rules={[required]}>
               <Input type="name" />
             </Form.Item>
-            <Form.Item name="last_name" label="Nom" rules={[required]}>
+            <Form.Item name="lName" label="Nom" rules={[required]}>
               <Input type="lastname" />
             </Form.Item>
           </div>
