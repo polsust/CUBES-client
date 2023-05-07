@@ -66,7 +66,7 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
       );
     }
     return (
-      <Form.Item name="identifier" label="Pseudo ou mail" rules={[required]}>
+      <Form.Item name="email" label="Mail" rules={[required]}>
         <Input />
       </Form.Item>
     );
