@@ -4,8 +4,24 @@ export const COLORS = {
   info: "#738BD7",
 };
 
-export enum ROUTES {
-  login = "/connexion",
-  signup = "/inscription",
-  root = "/",
+interface Routes {
+  [key: string]: {
+    path: string;
+    requiresAuth: boolean;
+  };
 }
+
+export const ROUTES: Routes = {
+  login: {
+    path: "/connexion",
+    requiresAuth: false,
+  },
+  signup: {
+    path: "/inscription",
+    requiresAuth: false,
+  },
+  root: {
+    path: "/",
+    requiresAuth: false,
+  },
+};

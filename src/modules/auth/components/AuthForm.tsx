@@ -95,7 +95,7 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
           type="link"
           className="bg-white"
           onClick={() => {
-            router.push(isLogin ? ROUTES.signup : ROUTES.login);
+            router.push(isLogin ? ROUTES.signup.path : ROUTES.login.path);
           }}
         >
           {switchBtnTxt}

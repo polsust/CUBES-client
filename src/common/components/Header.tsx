@@ -9,7 +9,7 @@ export default function Header({ }: HeaderProps) {
   return (
     <div className="flex fixed top-0 z-10 justify-between items-center px-5 my-5 w-full">
       <div>
-        <Link href={ROUTES.root}>
+        <Link href={ROUTES.root.path}>
           <Image
             src="/assets/images/logo.png"
             alt="logo"
@@ -19,7 +19,7 @@ export default function Header({ }: HeaderProps) {
         </Link>
       </div>
       <div>
-        <Button type="default" size="large">
+        <Button type="default" size="large" onClick={() => { }}>
           {true ? "Tableau de bord" : "Se connecter"}
         </Button>
       </div>

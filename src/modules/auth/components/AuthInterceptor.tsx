@@ -12,7 +12,7 @@ export default function AuthInterceptor({ children }: ChildrenProps) {
     if (!router.isReady) return;
 
     const targetRoute =
-      router.route === ROUTES.login ? ROUTES.login : ROUTES.signup;
+      router.route === ROUTES.login.path ? ROUTES.login.path : ROUTES.signup.path;
     router.replace(targetRoute);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
