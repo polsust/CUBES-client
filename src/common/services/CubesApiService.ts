@@ -13,7 +13,7 @@ import {
 
 export function cubesApiService() {
   const conf = new Configuration({
-    basePath: "https://localhost:5001",
+    basePath: process.env.NEXT_PUBLIC_API_URL,
   });
 
   const axiosInstance = axios.create();
