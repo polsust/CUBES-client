@@ -2,7 +2,6 @@ import { message } from "antd";
 import axios from "axios";
 import {
   Configuration,
-  UserDtoResponse,
   UserApi,
   RolesApi,
   CategoryApi,
@@ -19,8 +18,13 @@ export function cubesApiService() {
   const axiosInstance = axios.create();
 
   axiosInstance.interceptors.response.use((res) => {
+    interface Response {
+      message: string;
+      data: unknown;
+    }
+
     // all responses are the same
-    const dto = res.data as UserDtoResponse;
+    const dto = res.data as Response;
 
     if (res.status.toString()[0] !== "2") {
       message.error({ content: dto.message });
