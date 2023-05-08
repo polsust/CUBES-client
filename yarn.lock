@@ -1146,10 +1146,10 @@ csstype@^3.0.10, csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.1.tgz#841b532c45c758ee546a11d5bd7b7b473c8c30b9"
   integrity sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==
 
-cubes-api-client@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/cubes-api-client/-/cubes-api-client-0.0.4.tgz#bd89a4b36538c8ed406d18ab1c4bfdedd75cb76f"
-  integrity sha512-bqC088n2kgbbwDedDbbtfKX+r9uH1IACCkXb7re6c63PKnDDPookXai3z0T4ywMu6QAOuWy7mDj0HC8+K0INKg==
+cubes-api-client@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/cubes-api-client/-/cubes-api-client-0.0.5.tgz#a505532cab4b78e3e92928ccc4783f3fbb5d9845"
+  integrity sha512-OFuUUZsd79cYW8YL5PjvstJSqRxcPR6Lai3jALPDlBUf8UhB7X2C2qW+UXIl2lKaCs+Lprk+VKMyBkah8BHTgg==
   dependencies:
     axios "^0.27.2"
 
@@ -2197,6 +2197,11 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
+jose@^4.14.4:
+  version "4.14.4"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-4.14.4.tgz#59e09204e2670c3164ee24cbfe7115c6f8bff9ca"
+  integrity sha512-j8GhLiKmUAh+dsFXlX1aJCbt5KMibuKb+d7j1JaOJG6s2UjX1PQlW+OKB/sD4a/5ZYF4RcmYmLSndOoU3Lt/3g==
+
 js-sdsl@^4.1.4:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/js-sdsl/-/js-sdsl-4.2.0.tgz#278e98b7bea589b8baaf048c20aeb19eb7ad09d0"
@@ -2260,6 +2265,11 @@ jsonc-parser@^2.3.0:
   dependencies:
     array-includes "^3.1.5"
     object.assign "^4.1.3"
+
+jwt-decode@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-3.1.2.tgz#3fb319f3675a2df0c2895c8f5e9fa4b67b04ed59"
+  integrity sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==
 
 language-subtag-registry@~0.3.2:
   version "0.3.22"

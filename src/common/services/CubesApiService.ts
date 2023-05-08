@@ -9,13 +9,18 @@ import {
   RessourceApi,
   AuthApi,
 } from "cubes-api-client";
+import LocalStorageService from "./LocalStorageService";
 
 export function cubesApiService() {
   const conf = new Configuration({
     basePath: process.env.NEXT_PUBLIC_API_URL,
   });
 
-  const axiosInstance = axios.create();
+  const axiosInstance = axios.create({
+    headers: {
+      Authorization: `Bearer ${LocalStorageService.getItem<string>("token") ?? ""}`,
+    },
+  });
 
   axiosInstance.interceptors.response.use((res) => {
     interface Response {

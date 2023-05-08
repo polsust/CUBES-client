@@ -3,7 +3,19 @@ import { Button, Form, Input } from "antd";
 import { useRouter } from "next/router";
 import { style } from "../styles/AuthForm.style";
 import { ROUTES } from "@cubes/common/constants";
-import { Configuration, UserApi } from "cubes-api-client";
+import { cubesApiService } from "@cubes/common/services/CubesApiService";
+import LocalStorageService from "@cubes/common/services/LocalStorageService";
+
+interface LoginFormValues {
+  email: string;
+  password: string;
+}
+
+interface SignupFormValues extends LoginFormValues {
+  fName: string;
+  lName: string;
+  login: string;
+}
 
 interface AuthFormProps {
   isLogin: boolean;
@@ -12,34 +24,15 @@ interface AuthFormProps {
 export default function AuthForm({ isLogin }: AuthFormProps) {
   const router = useRouter();
 
+  const onFinish = async (values: SignupFormValues) => {
+    if (!isLogin) {
+      await cubesApiService().user.apiUserPost(values);
+    }
 
-  const onFinish = async (data: unknown) => {
-    const configuration = new Configuration({
-      basePath: "https://localhost:5001",
-    });
-    const userService = new UserApi(configuration);
+    const res = await cubesApiService().auth.apiAuthLoginPost(values);
 
-    const res = await userService.apiUserPost({
-      fName: "string",
-      lName: "string",
-      email: "polsust@gmail.com",
-      password: "string",
-      login: "string",
-      // activation: true,
-      // creationDate: "2023-04-30T09:18:13.461Z",
-      role: {
-        id_role: 0,
-        name: "string",
-        activated: true,
-      },
-      idRole: 0,
-    });
-
-    // await userService.apiUserGetUserIdGet(1);
-
-    // console.log(user);
-
-    console.log(data);
+    const jwt = res.data.data;
+    LocalStorageService.setItem("token", jwt.trim());
   };
 
   const renderConditionalFields = () => {
