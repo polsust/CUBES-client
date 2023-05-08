@@ -4,14 +4,7 @@ export const COLORS = {
   info: "#738BD7",
 };
 
-interface Routes {
-  [key: string]: {
-    path: string;
-    requiresAuth: boolean;
-  };
-}
-
-export const ROUTES: Routes = {
+export const ROUTES = {
   login: {
     path: "/connexion",
     requiresAuth: false,

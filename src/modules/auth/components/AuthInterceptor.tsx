@@ -11,9 +11,16 @@ export default function AuthInterceptor({ children }: ChildrenProps) {
   useEffect(() => {
     if (!router.isReady) return;
 
+    const currentRoute = Object.values(ROUTES).find((route) => {
+      route.path === router.route;
+    });
+
     const targetRoute =
-      router.route === ROUTES.login.path ? ROUTES.login.path : ROUTES.signup.path;
-    router.replace(targetRoute);
+      router.route === ROUTES.login.path
+        ? ROUTES.login.path
+        : ROUTES.signup.path;
+
+    if (currentRoute?.requiresAuth) router.replace(targetRoute);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.route]);
