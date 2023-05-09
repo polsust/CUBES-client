@@ -3,19 +3,8 @@ import { Button, Form, Input } from "antd";
 import { useRouter } from "next/router";
 import { style } from "../styles/AuthForm.style";
 import { ROUTES } from "@cubes/common/constants";
-import { cubesApiService } from "@cubes/common/services/CubesApiService";
-import LocalStorageService from "@cubes/common/services/LocalStorageService";
-
-interface LoginFormValues {
-  email: string;
-  password: string;
-}
-
-interface SignupFormValues extends LoginFormValues {
-  fName: string;
-  lName: string;
-  login: string;
-}
+import AuthService from "../services/AuthService";
+import { SignupFormValues } from "../types/Form";
 
 interface AuthFormProps {
   isLogin: boolean;
@@ -25,14 +14,8 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
   const router = useRouter();
 
   const onFinish = async (values: SignupFormValues) => {
-    if (!isLogin) {
-      await cubesApiService().user.apiUserPost(values);
-    }
-
-    const res = await cubesApiService().auth.apiAuthLoginPost(values);
-
-    const jwt = res.data.data;
-    LocalStorageService.setItem("token", jwt.trim());
+    if (!isLogin) await AuthService.signup(values);
+    AuthService.login(values);
   };
 
   const renderConditionalFields = () => {
