@@ -9,7 +9,6 @@
   ],
   "parser": "@typescript-eslint/parser",
   "root": true,
-
   "env": {
     "es2021": true,
     "node": true
@@ -22,6 +21,7 @@
   "rules": {
     "@typescript-eslint/no-empty-interface": 0,
     "@typescript-eslint/no-explicit-any": 0,
-    "no-empty-pattern": 0
+    "no-empty-pattern": 0,
+    "react-hooks/exhaustive-deps": "off"
   }
 }
