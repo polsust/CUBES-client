@@ -1,3 +1,5 @@
+import ResourceWrapper from "@cubes/modules/resource/components/templates/ResourceWrapper";
+
 export default function Home() {
-  return <div className="text-red-400">asda</div>;
+  return <ResourceWrapper />;
 }
