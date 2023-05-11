@@ -1,0 +1,106 @@
+[
+  {
+    "value": "A",
+    "label": "Agriculture, pêche, aquaculture"
+  },
+  {
+    "value": "B",
+    "label": "Industries agroalimentaires, alimentation, hôtellerie-restauration"
+  },
+  {
+    "value": "C",
+    "label": "Bâtiment, travaux publics"
+  },
+  {
+    "value": "D",
+    "label": "Fabrication, maintenance, travaux industriels"
+  },
+  {
+    "value": "E",
+    "label": "Énergie, extraction, gestion des déchets"
+  },
+  {
+    "value": "F",
+    "label": "Mécanique, électronique, électrotechnique"
+  },
+  {
+    "value": "G",
+    "label": "Chimie, plasturgie, pharmacie"
+  },
+  {
+    "value": "H",
+    "label": "Informatique, télécommunications"
+  },
+  {
+    "value": "I",
+    "label": "Médias, culture, communication"
+  },
+  {
+    "value": "J",
+    "label": "Études, recherche, développement"
+  },
+  {
+    "value": "K",
+    "label": "Droit, gestion, comptabilité, finances"
+  },
+  {
+    "value": "L",
+    "label": "Administration, fonctions publiques"
+  },
+  {
+    "value": "M",
+    "label": "Santé, action sociale"
+  },
+  {
+    "value": "N",
+    "label": "Commerce, vente"
+  },
+  {
+    "value": "O",
+    "label": "Transports, logistique, tourisme"
+  },
+  {
+    "value": "P",
+    "label": "Environnement, nettoyage, sécurité"
+  },
+  {
+    "value": "Q",
+    "label": "Sports, loisirs, animations"
+  },
+  {
+    "value": "R",
+    "label": "Armée, sécurité, surveillance"
+  },
+  {
+    "value": "S",
+    "label": "Arts graphiques, design, mode"
+  },
+  {
+    "value": "T",
+    "label": "Enseignement, formation"
+  },
+  {
+    "value": "U",
+    "label": "Agriculture, pêche, aquaculture (variantes régionales)"
+  },
+  {
+    "value": "V",
+    "label": "Bâtiment, travaux publics (variantes régionales)"
+  },
+  {
+    "value": "W",
+    "label": "Industries agroalimentaires, alimentation, hôtellerie-restauration\n(variantes régionales)"
+  },
+  {
+    "value": "X",
+    "label": "Fabrication, maintenance, travaux industriels (variantes régionales)"
+  },
+  {
+    "value": "Y",
+    "label": "Énergie, extraction, gestion des déchets (variantes régionales)"
+  },
+  {
+    "value": "Z",
+    "label": "Autres (variantes régionales)"
+  }
+]
