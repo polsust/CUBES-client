@@ -13,7 +13,7 @@ export const ROUTES = {
     path: "/inscription",
     requiresAuth: false,
   },
-  root: {
+  catalog: {
     path: "/",
     requiresAuth: false,
   },

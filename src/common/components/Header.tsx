@@ -15,7 +15,7 @@ export default function Header({ }: HeaderProps) {
   return (
     <div className="flex fixed top-0 z-10 justify-between items-center px-5 my-5 w-full">
       <div>
-        <Link href={ROUTES.root.path}>
+        <Link href={ROUTES.catalog.path}>
           <Image
             src="/assets/images/logo.png"
             alt="logo"
@@ -30,7 +30,7 @@ export default function Header({ }: HeaderProps) {
           size="large"
           onClick={() => {
             if (Boolean(user)) {
-              return router.push(ROUTES.root.path);
+              return router.push(ROUTES.catalog.path);
             }
             router.push(ROUTES.login.path);
           }}
