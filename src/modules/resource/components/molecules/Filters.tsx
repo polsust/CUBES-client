@@ -1,3 +1,4 @@
+import { Button, Dropdown, Popover } from "antd";
 import departments from "../../data/departments.json";
 import nafCodes from "../../data/nafCodes.json";
 import romeCodes from "../../data/romeCodes.json";
@@ -14,12 +15,8 @@ interface FiltersProps {
 }
 
 export default function Filters({ setFilters }: FiltersProps) {
-  // useEffect(() => {
-  //   onChange(filters);
-  // }, [filters]);
-
   return (
-    <div>
+    <div className="flex space-y-4 flex-col w-2/4">
       <FilterSelect
         entityName="department"
         data={departments}

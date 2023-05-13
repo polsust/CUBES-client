@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "../atoms/SearchBar";
 import Filters, { IFilters } from "./Filters";
 
-interface SearchObject {
+export interface SearchObject {
   query: string;
   filters: IFilters;
 }
@@ -27,7 +27,7 @@ export default function Search({ onChange }: SearchProps) {
   }, [query, filters]);
 
   return (
-    <div>
+    <div className="flex">
       <SearchBar onChange={setQuery} />
       <Filters setFilters={setFilters} />
     </div>

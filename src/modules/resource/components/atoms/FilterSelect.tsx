@@ -16,17 +16,15 @@ export default function FilterSelect({
   entityName,
 }: FilterSelectProps) {
   return (
-    <div>
-      <Select
-        showSearch
-        placeholder={`Selectionner un ${entityName}`}
-        optionFilterProp="children"
-        onChange={onChange}
-        filterOption={(input, option) =>
-          (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
-        }
-        options={data}
-      />
-    </div>
+    <Select
+      showSearch
+      placeholder={`Selectionner un ${entityName}`}
+      optionFilterProp="children"
+      onChange={onChange}
+      filterOption={(input, option) =>
+        (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
+      }
+      options={data}
+    />
   );
 }
