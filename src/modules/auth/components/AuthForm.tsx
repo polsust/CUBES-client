@@ -15,7 +15,8 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
 
   const onFinish = async (values: SignupFormValues) => {
     if (!isLogin) await AuthService.signup(values);
-    AuthService.login(values);
+    const success = await AuthService.login(values);
+    if (success) router.push(ROUTES.catalog.path);
   };
 
   const renderConditionalFields = () => {
