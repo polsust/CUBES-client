@@ -11,6 +11,11 @@ import {
 } from "cubes-api-client";
 import LocalStorageService from "./LocalStorageService";
 
+export interface ResponseDto<T> {
+  message: string;
+  data: T;
+}
+
 export function cubesApiService() {
   const conf = new Configuration({
     basePath: process.env.NEXT_PUBLIC_API_URL,
@@ -18,25 +23,21 @@ export function cubesApiService() {
 
   const axiosInstance = axios.create({
     headers: {
-      Authorization: `Bearer ${LocalStorageService.getItem<string>("token") ?? ""}`,
+      Authorization: `Bearer ${LocalStorageService.getItem<string>("token") ?? ""
+        }`,
     },
   });
 
-  axiosInstance.interceptors.response.use((res) => {
-    interface Response {
-      message: string;
-      data: unknown;
+  axiosInstance.interceptors.response.use(
+    (res) => {
+      return res;
+    },
+    (error) => {
+      // all responses are the same
+      const dto = error.response.data as ResponseDto<unknown>;
+      message.error({ content: dto.message ?? error.message });
     }
-
-    // all responses are the same
-    const dto = res.data as Response;
-
-    if (res.status.toString()[0] !== "2") {
-      message.error({ content: dto.message });
-    }
-
-    return res;
-  });
+  );
 
   return {
     user: new UserApi(conf, undefined, axiosInstance),
