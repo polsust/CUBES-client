@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import ResourceList from "../organisms/ResourceList";
-import Search from "../molecules/Search";
+import Search, { SearchObject } from "../molecules/Search";
 
 interface ResourceWrapperProps { }
 
 export default function ResourceWrapper({ }: ResourceWrapperProps) {
-  return (
-    <div>
-      <h1 className="text-white">(RE)ssources relationnels</h1>
-      <Search onChange={console.log} />
+  const [search, setSearch] = useState<SearchObject>({
+    query: "",
+    filters: {
+      departmentCode: null,
+      nafCode: null,
+      romeCode: null,
+    },
+  });
 
-      <ResourceList query="" />
+  return (
+    <div className="w-9/12">
+      <h1 className="text-white">(RE)ssources relationnels</h1>
+      <Search onChange={setSearch} />
+
+      <ResourceList searchObject={search} />
     </div>
   );
 }
