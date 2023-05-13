@@ -2,15 +2,15 @@ import { Input } from "antd";
 import React from "react";
 
 interface SearchBarProps {
-  onChange: (value: string) => void;
+  onSearch: (value: string) => void;
 }
 
-export default function SearchBar({ onChange }: SearchBarProps) {
+export default function SearchBar({ onSearch }: SearchBarProps) {
   return (
     <Input.Search
       size="large"
       placeholder="Rechercher"
-      onChange={(e) => onChange(e.target.value)}
+      onSearch={onSearch}
     />
   );
 }

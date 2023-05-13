@@ -28,7 +28,7 @@ export default function Search({ onChange }: SearchProps) {
 
   return (
     <div className="flex">
-      <SearchBar onChange={setQuery} />
+      <SearchBar onSearch={setQuery} />
       <Filters setFilters={setFilters} />
     </div>
   );
