@@ -23,6 +23,7 @@ export default function FilterSelect({
 
   return (
     <Select
+      className="w-full"
       showSearch
       placeholder={`Selectionner un ${entityName}`}
       optionFilterProp="children"

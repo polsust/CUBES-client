@@ -15,7 +15,7 @@ interface FiltersProps {
 
 export default function Filters({ setFilters }: FiltersProps) {
   return (
-    <div className="flex justify-center space-x-4 w-full">
+    <div className="flex flex-col justify-center space-y-2 w-full lg:flex-row lg:space-y-0 lg:space-x-4">
       <FilterSelect
         entityName="department"
         data={departments}

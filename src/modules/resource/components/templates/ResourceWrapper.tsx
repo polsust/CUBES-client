@@ -12,7 +12,7 @@ export default function ResourceWrapper({ }: ResourceWrapperProps) {
   });
 
   return (
-    <div className="w-9/12">
+    <div className="md:w-9/12 w-11/12">
       <h1 className="text-5xl text-center text-white">
         (RE)ssources relationnels
       </h1>
