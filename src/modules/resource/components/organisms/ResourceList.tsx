@@ -1,34 +1,59 @@
 import { cubesApiService } from "@cubes/common/services/CubesApiService";
 import { useQuery } from "react-query";
 import { IFilters } from "../molecules/Filters";
-import Resource from "../molecules/Resource";
+import { AlternanceAndFormation } from "../../types/AlternanceAndFormation";
+import { Job } from "../../types/Job";
+import AlternanceAndFormationCard from "../molecules/AlternanceAndFormationCard";
+import JobCard from "../molecules/JobCard";
+import { shuffleArray } from "@cubes/common/helpers/util";
 
 interface ResourceListProps {
   filters: IFilters;
 }
 
 export default function ResourceList({ filters }: ResourceListProps) {
-  const { data: resources } = useQuery(
+  const { data: alternancesAndFormations } = useQuery(
     ["resources", filters.romeCode, filters.departmentCode],
     async () => {
-      if (!filters.romeCode || !filters.departmentCode) return [];
+      if (!filters.romeCode || !filters.departmentCode || !filters.nafCode)
+        return [];
 
-      const { data } = await cubesApiService().ressource.apiRessourceJobGet(
-        filters.romeCode
-      );
+      const res =
+        await cubesApiService().ressource.apiRessourceAlternancesFormationsGet(
+          filters.romeCode,
+          filters.departmentCode
+        );
 
-      // await cubesApiService().ressource.apiRessourceAlternancesFormationsGet(
-      //   filters.romeCode,
-      //   filters.departmentCode
-      // );
+      const data = res.data.data as AlternanceAndFormation[];
 
-      return data.data as any[];
+      return data;
     }
   );
 
-  if (!resources) return null;
+  const { data: jobs } = useQuery(["jobs", filters.nafCode], async () => {
+    if (!filters.nafCode) return [];
 
-  return resources.map((resource, i) => (
-    <Resource key={i} resource={resource} />
-  ));
+    const res = await cubesApiService().ressource.apiRessourceJobGet(
+      filters.nafCode
+    );
+
+    const data = res.data.data as Job[];
+
+    return data;
+  });
+
+  return (
+    <div className="flex flex-wrap justify-center my-5 w-full h-full">
+      {(alternancesAndFormations ?? []).map((alternanceAndFormation, i) => (
+        <AlternanceAndFormationCard
+          key={i}
+          alternanceAndFormation={alternanceAndFormation}
+        />
+      ))}
+
+      {(jobs ?? []).map((job, i) => (
+        <JobCard key={i} job={job} />
+      ))}
+    </div>
+  );
 }
