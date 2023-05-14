@@ -4,9 +4,9 @@ import romeCodes from "../../data/romeCodes.json";
 import FilterSelect from "../atoms/FilterSelect";
 
 export interface IFilters {
-  departmentCode: string;
-  nafCode: string;
-  romeCode: string;
+  departmentCode: string | null;
+  nafCode: string | null;
+  romeCode: string | null;
 }
 
 interface FiltersProps {

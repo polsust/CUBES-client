@@ -6,9 +6,9 @@ interface ResourceWrapperProps { }
 
 export default function ResourceWrapper({ }: ResourceWrapperProps) {
   const [filters, setFilters] = useState<IFilters>({
-    departmentCode: "",
-    nafCode: "",
-    romeCode: "",
+    departmentCode: null,
+    nafCode: null,
+    romeCode: null,
   });
 
   return (

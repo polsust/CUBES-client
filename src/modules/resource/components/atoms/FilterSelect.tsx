@@ -16,7 +16,11 @@ export default function FilterSelect({
   entityName,
 }: FilterSelectProps) {
   const { data: defaultValue } = useQuery({
-    queryFn: () => data[Math.floor(Math.random() * data.length)],
+    queryFn: () => {
+      const initalValue = data[Math.floor(Math.random() * data.length)];
+      onChange(initalValue.value);
+      return initalValue;
+    },
     queryKey: entityName,
   });
   if (!defaultValue) return null;
