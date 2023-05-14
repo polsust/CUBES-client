@@ -1,13 +1,12 @@
-import { Button, Dropdown, Popover } from "antd";
 import departments from "../../data/departments.json";
 import nafCodes from "../../data/nafCodes.json";
 import romeCodes from "../../data/romeCodes.json";
 import FilterSelect from "../atoms/FilterSelect";
 
 export interface IFilters {
-  departmentCode: string | null;
-  nafCode: string | null;
-  romeCode: string | null;
+  departmentCode: string;
+  nafCode: string;
+  romeCode: string;
 }
 
 interface FiltersProps {
@@ -16,7 +15,7 @@ interface FiltersProps {
 
 export default function Filters({ setFilters }: FiltersProps) {
   return (
-    <div className="flex space-y-4 flex-col w-2/4">
+    <div className="flex justify-center space-x-4 w-full">
       <FilterSelect
         entityName="department"
         data={departments}

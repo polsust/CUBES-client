@@ -1,5 +1,5 @@
 import { Select } from "antd";
-import React from "react";
+import { useQuery } from "react-query";
 
 interface FilterSelectProps {
   data: {
@@ -15,6 +15,12 @@ export default function FilterSelect({
   onChange,
   entityName,
 }: FilterSelectProps) {
+  const { data: defaultValue } = useQuery({
+    queryFn: () => data[Math.floor(Math.random() * data.length)],
+    queryKey: entityName,
+  });
+  if (!defaultValue) return null;
+
   return (
     <Select
       showSearch
@@ -25,6 +31,7 @@ export default function FilterSelect({
         (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
       }
       options={data}
+      defaultValue={defaultValue.value}
     />
   );
 }
