@@ -17,4 +17,15 @@ export const ROUTES = {
     path: "/",
     requiresAuth: false,
   },
+  profile: {
+    path: "/profil",
+    requiresAuth: true,
+  }
+};
+
+export const USER_ROLES = {
+  supAdmin: "1",
+  admin: "2",
+  moderator: "3",
+  citizen: "4",
 };

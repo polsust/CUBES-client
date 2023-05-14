@@ -11,3 +11,9 @@
 body {
   margin: 0;
 }
+
+button {
+  > svg{
+    margin:0 5px;
+  }
+}
