@@ -12,7 +12,7 @@ interface BottomTabsProps { }
 export default function BottomTabs({ }: BottomTabsProps) {
   return (
     <Tabs
-      className="absolute bottom-0 w-full flex bg-secondary text-white"
+      className="fixed bottom-0 w-full flex bg-secondary text-white"
       css={bottomTabsStyle}
       items={[
         {
