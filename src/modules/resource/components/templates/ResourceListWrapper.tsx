@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import ResourceList from "../organisms/ResourceList";
 import Filters, { IFilters } from "../molecules/Filters";
 
-interface ResourceWrapperProps { }
+interface ResourceListWrapperProps { }
 
-export default function ResourceWrapper({ }: ResourceWrapperProps) {
+export default function ResourceListWrapper({ }: ResourceListWrapperProps) {
   const [filters, setFilters] = useState<IFilters>({
     departmentCode: null,
     nafCode: null,
