@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import DataField from "../atoms/DataField";
 import Link from "next/link";
+import GoBackButton from "@cubes/common/components/atoms/GoBackButton";
 
 interface ResourceWrapperProps {
   resource: IResource;
@@ -15,17 +16,23 @@ interface ResourceWrapperProps {
 export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
   console.log(resource);
 
+  const title = <h1 className="text-center text-white">{resource._title}</h1>;
+
   return (
     <div>
-      <Link
-        href={resource._url}
-        target="_blank"
-        className="text-white no-underline hover:underline text-center"
-      >
-        <h1>{resource._title}</h1>
-      </Link>
+      {resource._url ? (
+        <Link
+          href={resource._url}
+          target="_blank"
+          className="text-white no-underline hover:underline"
+        >
+          {title}
+        </Link>
+      ) : (
+        title
+      )}
 
-      <div className="p-5 m-8 max-w-6xl bg-white rounded-xl">
+      <div className="m-8 bg-white p-5 rounded-xl">
         <DataField icon={faLocationPin} data={resource.ville} title="ville" />
         <DataField
           icon={faEnvelope}
@@ -33,19 +40,19 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
           label="CP"
           data={resource.zipcode}
         />
-        <DataField
-          icon={faLink}
-          title="Lien"
-          data={
-            <Link href={resource._url} className="text-black" target="_blank">
-              {resource._url}
-            </Link>
-          }
-        />
+        {Boolean(resource._url) && (
+          <DataField
+            icon={faLink}
+            title="Lien"
+            data={
+              <Link href={resource._url} className="text-black" target="_blank">
+                {resource._url}
+              </Link>
+            }
+          />
+        )}
 
-        <p className="my-20 whitespace-pre-line">
-          {resource.description}
-        </p>
+        <p className="my-20 whitespace-pre-line">{resource.description}</p>
 
         <DataField
           title="Nombre de visites"
