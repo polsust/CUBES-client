@@ -35,8 +35,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
         />
         <DataField
           icon={faLink}
-          title="Code postal"
-          label="CP"
+          title="Lien"
           data={
             <Link href={resource._url} className="text-black" target="_blank">
               {resource._url}
