@@ -4,10 +4,11 @@ import ResourceCard from "./ResourceCard";
 
 interface JobCardProps {
   job: Job;
+  onClick: () => void;
 }
-export default function JobCard({ job }: JobCardProps) {
+export default function JobCard({ job, onClick }: JobCardProps) {
   return (
-    <ResourceCard title={job._title} onClick={() => { }}>
+    <ResourceCard title={job._title} onClick={onClick}>
       <DataField label="Ville" data={job.ville} />
       <DataField label="Salaire" data={job.salaire} />
       <DataField label="Contrat" data={job.typeContrat} />
