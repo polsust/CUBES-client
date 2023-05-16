@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReactNode } from "react";
 
 interface DataFieldProps {
-  icon: IconProp;
+  icon?: IconProp;
   label?: string | number;
   data: string | number | ReactNode | null;
   title?: string;
@@ -19,7 +19,7 @@ export default function DataField({
 
   return (
     <p title={title ?? (label as string) ?? ""}>
-      <FontAwesomeIcon icon={icon} className="mr-2" />
+      {icon && <FontAwesomeIcon icon={icon} className="mr-2" />}
       {Boolean(label) && <b>{label}:</b>} {data}
     </p>
   );
