@@ -20,6 +20,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
 
   return (
     <div>
+      <GoBackButton />
       {resource._url ? (
         <Link
           href={resource._url}
