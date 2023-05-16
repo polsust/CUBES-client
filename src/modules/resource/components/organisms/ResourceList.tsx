@@ -5,7 +5,6 @@ import { AlternanceAndFormation } from "../../types/AlternanceAndFormation";
 import { Job } from "../../types/Job";
 import AlternanceAndFormationCard from "../molecules/AlternanceAndFormationCard";
 import JobCard from "../molecules/JobCard";
-import { shuffleArray } from "@cubes/common/helpers/util";
 
 interface ResourceListProps {
   filters: IFilters;
