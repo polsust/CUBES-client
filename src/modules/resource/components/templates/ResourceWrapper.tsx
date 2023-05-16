@@ -20,12 +20,12 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
       <Link
         href={resource._url}
         target="_blank"
-        className="text-white no-underline hover:underline"
+        className="text-white no-underline hover:underline text-center"
       >
         <h1>{resource._title}</h1>
       </Link>
 
-      <div className="m-8">
+      <div className="m-8 bg-white p-5 rounded-xl">
         <DataField icon={faLocationPin} data={resource.ville} title="ville" />
         <DataField
           icon={faEnvelope}
@@ -43,18 +43,8 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
           }
         />
 
-        <p className="my-20">
-          Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
-          enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
-          exercitation amet.Nisi anim cupidatat excepteur officia.Reprehenderit
-          nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor
-          minim nulla est proident.Nostrud officia pariatur ut officia.Sit irure
-          elit esse ea nulla sunt ex occaecat reprehenderit commodo officia
-          dolor Lorem duis laboris cupidatat officia voluptate.Culpa proident
-          adipisicing id nulla nisi laboris ex in Lorem sunt duis officia
-          eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit
-          enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et
-          est culpa et culpa duis.
+        <p className="my-20 whitespace-pre-line">
+          {resource.description}
         </p>
 
         <DataField
