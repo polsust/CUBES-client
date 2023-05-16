@@ -21,10 +21,14 @@ export function cubesApiService() {
     basePath: process.env.NEXT_PUBLIC_API_URL,
   });
 
+  const token =
+    typeof window === "undefined"
+      ? null
+      : LocalStorageService.getItem<string>("token") ?? null;
+
   const axiosInstance = axios.create({
     headers: {
-      Authorization: `Bearer ${LocalStorageService.getItem<string>("token") ?? ""
-        }`,
+      Authorization: `Bearer ${token}`,
     },
   });
 
@@ -33,6 +37,10 @@ export function cubesApiService() {
       return res;
     },
     (error) => {
+      if (typeof window === "undefined") return;
+
+      if (error.code) return message.error(error.message);
+
       // all responses are the same
       const dto = error.response.data as ResponseDto<unknown>;
       message.error({ content: dto.message ?? error.message });
