@@ -14,7 +14,7 @@ export const ROUTES = {
     requiresAuth: false,
   },
   catalog: {
-    path: "/",
+    path: "/catalogue",
     requiresAuth: false,
   },
   profile: {
