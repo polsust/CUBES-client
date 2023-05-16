@@ -23,6 +23,7 @@ export default function ResourceList({ filters }: ResourceListProps) {
           filters.departmentCode
         );
 
+      // @ts-ignore
       const data = res.data.data as AlternanceAndFormation[];
 
       return data;
@@ -36,6 +37,7 @@ export default function ResourceList({ filters }: ResourceListProps) {
       filters.nafCode
     );
 
+    // @ts-ignore
     const data = res.data.data as Job[];
 
     return data;
