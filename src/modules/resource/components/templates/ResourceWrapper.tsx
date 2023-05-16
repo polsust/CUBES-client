@@ -25,7 +25,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
         <h1>{resource._title}</h1>
       </Link>
 
-      <div className="m-8 bg-white p-5 rounded-xl">
+      <div className="p-5 m-8 max-w-6xl bg-white rounded-xl">
         <DataField icon={faLocationPin} data={resource.ville} title="ville" />
         <DataField
           icon={faEnvelope}
