@@ -38,7 +38,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
           title="Code postal"
           label="CP"
           data={
-            <Link href={resource._url} className="text-black">
+            <Link href={resource._url} className="text-black" target="_blank">
               {resource._url}
             </Link>
           }
