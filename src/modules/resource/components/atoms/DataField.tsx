@@ -1,14 +1,26 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ReactNode } from "react";
+
 interface DataFieldProps {
-  label: string;
-  data: string | number;
+  icon: IconProp;
+  label?: string | number;
+  data: string | number | ReactNode | null;
+  title?: string;
 }
 
-export default function DataField({ label, data }: DataFieldProps) {
-  if (!data) return null;
+export default function DataField({
+  label,
+  data,
+  icon,
+  title,
+}: DataFieldProps) {
+  if (!data === null) return null;
 
   return (
-    <p>
-      <b>{label}:</b> {data}
+    <p title={title ?? (label as string) ?? ""}>
+      <FontAwesomeIcon icon={icon} className="mr-2" />
+      {Boolean(label) && <b>{label}:</b>} {data}
     </p>
   );
 }
