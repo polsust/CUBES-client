@@ -17,40 +17,44 @@ interface FiltersProps {
 export default function Filters({ setFilters }: FiltersProps) {
   return (
     <div className="flex flex-col justify-center space-y-2 w-full lg:flex-row lg:space-y-0 lg:space-x-4">
-      <FilterSelect
-        entityName="Department"
-        data={departments}
-        onChange={(value) => {
-          setFilters((oldFilters) => ({
-            ...oldFilters,
-            departmentCode: value,
-          }));
-        }}
-      />
-      <FilterSelect
-        entityName="Code naf"
-        data={nafCodes}
-        onChange={(value) =>
-          setFilters((oldFilters) => ({ ...oldFilters, nafCode: value }))
-        }
-      />
-      <FilterSelect
-        entityName="Code rome"
-        data={romeCodes}
-        onChange={(value) =>
-          setFilters((oldFilters) => ({ ...oldFilters, romeCode: value }))
-        }
-      />
-      <FilterSelect
-        entityName="Type de ressource"
-        data={[
-          { label: "Alternance", value: "alternance" },
-          { label: "Job", value: "job" },
-        ]}
-        onChange={(value) =>
-          setFilters((oldFilters) => ({ ...oldFilters, type: value }))
-        }
-      />
+      <div>
+        <FilterSelect
+          entityName="Department"
+          data={departments}
+          onChange={(value) => {
+            setFilters((oldFilters) => ({
+              ...oldFilters,
+              departmentCode: value,
+            }));
+          }}
+        />
+        <FilterSelect
+          entityName="Code naf"
+          data={nafCodes}
+          onChange={(value) =>
+            setFilters((oldFilters) => ({ ...oldFilters, nafCode: value }))
+          }
+        />
+      </div>
+      <div>
+        <FilterSelect
+          entityName="Code rome"
+          data={romeCodes}
+          onChange={(value) =>
+            setFilters((oldFilters) => ({ ...oldFilters, romeCode: value }))
+          }
+        />
+        <FilterSelect
+          entityName="Type de ressource"
+          data={[
+            { label: "Alternance", value: "alternance" },
+            { label: "Job", value: "job" },
+          ]}
+          onChange={(value) =>
+            setFilters((oldFilters) => ({ ...oldFilters, type: value }))
+          }
+        />
+      </div>
     </div>
   );
 }
