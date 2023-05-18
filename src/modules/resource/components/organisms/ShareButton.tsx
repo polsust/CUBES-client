@@ -27,6 +27,7 @@ export default function ShareButton({ resource }: ShareButtonProps) {
   });
 
   const { data: user } = useQuery({
+    queryKey: ["user"],
     queryFn: () => AuthService.getUser(),
   });
 

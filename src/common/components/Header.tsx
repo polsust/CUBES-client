@@ -6,13 +6,15 @@ import { useRouter } from "next/router";
 import AuthService from "@cubes/modules/auth/services/AuthService";
 import { useQuery } from "react-query";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons";
+import { queryClient } from "../providers/ReactQueryProvider";
 
 interface HeaderProps { }
 
 export default function Header({ }: HeaderProps) {
   const router = useRouter();
   const { data: user } = useQuery({
+    queryKey: ["user"],
     queryFn: () => AuthService.getUser(),
   });
 
@@ -32,13 +34,17 @@ export default function Header({ }: HeaderProps) {
         <Button
           type="default"
           size="large"
-          icon={<FontAwesomeIcon icon={faUser} />}
+          icon={<FontAwesomeIcon icon={Boolean(user) ? faPowerOff : faUser} />}
           onClick={() => {
-            if (Boolean(user)) return router.push(ROUTES.profile.path);
-            router.push(ROUTES.login.path);
+            if (Boolean(user)) {
+              AuthService.logout();
+              queryClient.invalidateQueries("user");
+            } else {
+              router.push(ROUTES.login.path);
+            }
           }}
         >
-          {Boolean(user) ? "Profil" : "Se connecter"}
+          {Boolean(user) ? "Se deconnecter" : "Se connecter"}
         </Button>
 
         {[USER_ROLES.admin, USER_ROLES.supAdmin].includes(

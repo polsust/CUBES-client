@@ -5,6 +5,7 @@ import { style } from "../styles/AuthForm.style";
 import { ROUTES } from "@cubes/common/constants";
 import AuthService from "../services/AuthService";
 import { SignupFormValues } from "../types/Form";
+import { queryClient } from "@cubes/common/providers/ReactQueryProvider";
 
 interface AuthFormProps {
   isLogin: boolean;
@@ -17,6 +18,7 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
     if (!isLogin) await AuthService.signup(values);
     const success = await AuthService.login(values);
     if (success) router.push(ROUTES.catalog.path);
+    queryClient.invalidateQueries("user");
   };
 
   const renderConditionalFields = () => {
