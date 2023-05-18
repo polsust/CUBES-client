@@ -26,17 +26,19 @@ export default function FilterSelect({
   if (!defaultValue) return null;
 
   return (
-    <Select
-      className="w-full"
-      showSearch
-      placeholder={`Selectionner un ${entityName}`}
-      optionFilterProp="children"
-      onChange={onChange}
-      filterOption={(input, option) =>
-        (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
-      }
-      options={data}
-      defaultValue={defaultValue.value}
-    />
+    <Form.Item label={entityName}>
+      <Select
+        className="w-full"
+        showSearch
+        placeholder={`Selectionner un ${entityName}`}
+        optionFilterProp="children"
+        onChange={onChange}
+        filterOption={(input, option) =>
+          (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
+        }
+        options={data}
+        defaultValue={defaultValue.value}
+      />
+    </Form.Item>
   );
 }

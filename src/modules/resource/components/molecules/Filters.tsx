@@ -17,7 +17,7 @@ export default function Filters({ setFilters }: FiltersProps) {
   return (
     <div className="flex flex-col justify-center space-y-2 w-full lg:flex-row lg:space-y-0 lg:space-x-4">
       <FilterSelect
-        entityName="department"
+        entityName="Department"
         data={departments}
         onChange={(value) => {
           setFilters((oldFilters) => ({
@@ -27,14 +27,14 @@ export default function Filters({ setFilters }: FiltersProps) {
         }}
       />
       <FilterSelect
-        entityName="NAF"
+        entityName="Code naf"
         data={nafCodes}
         onChange={(value) =>
           setFilters((oldFilters) => ({ ...oldFilters, nafCode: value }))
         }
       />
       <FilterSelect
-        entityName="ROME"
+        entityName="Code rome"
         data={romeCodes}
         onChange={(value) =>
           setFilters((oldFilters) => ({ ...oldFilters, romeCode: value }))
