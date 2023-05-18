@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Desktop>
           <Header />
         </Desktop>
-        <div className="flex relative justify-center pt-40 pb-32 w-full min-h-screen bg-primary px-5 lg:px-20">
+        <div className="flex relative justify-center pt-10 pb-32 w-full min-h-screen md:px-20 md:pt-40 bg-primary">
           <Component {...pageProps} />
         </div>
 
