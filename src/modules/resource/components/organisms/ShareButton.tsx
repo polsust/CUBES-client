@@ -11,6 +11,7 @@ interface ShareButtonProps {
 }
 
 export default function ShareButton({ resource }: ShareButtonProps) {
+  const [form] = Form.useForm();
   const shareMutation = useMutation({
     mutationFn: (email: string) => {
       return cubesApiService().ressource.apiRessourceRessourceRessDestinataireDestinataireEmailShareRessourcePost(
@@ -20,6 +21,7 @@ export default function ShareButton({ resource }: ShareButtonProps) {
     },
     // @ts-ignore
     onSettled: ({ data }) => {
+      form.resetFields();
       message.success(data.message);
     },
   });
@@ -33,6 +35,7 @@ export default function ShareButton({ resource }: ShareButtonProps) {
       className="flex space-x-3"
       onFinish={({ email }) => shareMutation.mutate(email)}
       validateTrigger="onSubmit"
+      form={form}
     >
       <Form.Item name="email" rules={[{ required: true, type: "email" }]}>
         <Input type="email" placeholder="email@mail.com" />
