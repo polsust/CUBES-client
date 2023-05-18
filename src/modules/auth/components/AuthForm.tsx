@@ -71,7 +71,7 @@ export default function AuthForm({ isLogin }: AuthFormProps) {
         </Form.Item>
       </div>
 
-      <div className="flex justify-center mt-10 space-x-10">
+      <div className="flex flex-col justify-center mt-10 space-y-5">
         <Button htmlType="submit" type="primary" size="large">
           {submitBtnTxt}
         </Button>
