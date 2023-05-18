@@ -14,9 +14,10 @@ interface ResourceListProps {
 
 export default function ResourceList({ filters }: ResourceListProps) {
   const router = useRouter();
+  console.log(filters)
 
   const { data: alternancesAndFormations } = useQuery(
-    ["resources", filters.romeCode, filters.departmentCode],
+    ["resources", filters.romeCode, filters.departmentCode, filters.type],
     async () => {
       if (!filters.romeCode || !filters.departmentCode || !filters.nafCode)
         return [];
@@ -31,25 +32,35 @@ export default function ResourceList({ filters }: ResourceListProps) {
       const data = res.data.data as AlternanceAndFormation[];
 
       return data;
+    },
+    {
+      enabled: filters.type === "alternance",
     }
   );
 
-  const { data: jobs } = useQuery(["jobs", filters.nafCode], async () => {
-    if (!filters.nafCode) return [];
+  const { data: jobs } = useQuery(
+    ["jobs", filters.nafCode, filters.type],
+    async () => {
+      if (!filters.nafCode) return [];
 
-    const res = await cubesApiService().ressource.apiRessourceJobGet(
-      filters.nafCode
-    );
+      const res = await cubesApiService().ressource.apiRessourceJobGet(
+        filters.nafCode
+      );
 
-    // @ts-ignore
-    const data = res.data.data as Job[];
+      // @ts-ignore
+      const data = res.data.data as Job[];
 
-    return data;
-  });
+      return data;
+    },
+    {
+      enabled: filters.type === "job",
+    }
+  );
 
   const goToResource = (resource: IResource) => {
-    router.push(`/catalogue/${encodeURIComponent(resource.reference)}`);
+    router.push(`/catalogue/${resource._id}`);
   };
+  console.log(jobs);
 
   return (
     <div className="flex flex-wrap justify-center my-5 w-full h-full">

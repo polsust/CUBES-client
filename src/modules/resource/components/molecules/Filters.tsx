@@ -7,6 +7,7 @@ export interface IFilters {
   departmentCode: string | null;
   nafCode: string | null;
   romeCode: string | null;
+  type: string;
 }
 
 interface FiltersProps {
@@ -38,6 +39,16 @@ export default function Filters({ setFilters }: FiltersProps) {
         data={romeCodes}
         onChange={(value) =>
           setFilters((oldFilters) => ({ ...oldFilters, romeCode: value }))
+        }
+      />
+      <FilterSelect
+        entityName="Type de ressource"
+        data={[
+          { label: "Alternance", value: "alternance" },
+          { label: "Job", value: "job" },
+        ]}
+        onChange={(value) =>
+          setFilters((oldFilters) => ({ ...oldFilters, type: value }))
         }
       />
     </div>
