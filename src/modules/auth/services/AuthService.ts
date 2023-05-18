@@ -14,6 +14,7 @@ export default class AuthService {
 
     const jwt = data.data;
 
+    this.logout();
     LocalStorageService.setItem<string>("token", jwt.trim());
 
     return Boolean(jwt);
@@ -33,7 +34,19 @@ export default class AuthService {
       iat: decoded.iat as number,
       nbf: decoded.nbf as number,
     };
+    this.checkToken(jwtContent.exp as number);
 
     return jwtContent;
+  }
+
+  public static checkToken(exp: number) {
+    const expirationDate = new Date(exp * 1000); // Convert to milliseconds
+    const isExpired = expirationDate <= new Date();
+
+    if (isExpired) this.logout();
+  }
+
+  public static logout() {
+    LocalStorageService.removeItem("token");
   }
 }

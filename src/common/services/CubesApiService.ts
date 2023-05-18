@@ -10,6 +10,7 @@ import {
   AuthApi,
 } from "cubes-api-client";
 import LocalStorageService from "./LocalStorageService";
+import AuthService from "@cubes/modules/auth/services/AuthService";
 
 export interface ResponseDto<T> {
   message: string;
@@ -25,6 +26,8 @@ export function cubesApiService() {
     typeof window === "undefined"
       ? null
       : LocalStorageService.getItem<string>("token") ?? null;
+
+  AuthService.getUser();
 
   const axiosInstance = axios.create({
     headers: {
