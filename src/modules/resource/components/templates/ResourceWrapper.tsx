@@ -12,13 +12,13 @@ import JobInfos from "../organisms/JobInfos";
 import AlternanceInfos from "../organisms/AlternanceInfos";
 import { AlternanceAndFormation } from "../../types/AlternanceAndFormation";
 import { Job } from "../../types/Job";
+import ShareButton from "../organisms/ShareButton";
 
 interface ResourceWrapperProps {
   resource: IResource;
 }
 
 export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
-  console.log(resource);
   const job = resource as Job;
   const isJob = Boolean(job.description);
 
@@ -68,11 +68,18 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
 
         <p className="my-20 whitespace-pre-line">{job.description}</p>
 
-        <DataField
-          title="Nombre de visites"
-          icon={faEye}
-          data={resource._views}
-        />
+        <div className="flex justify-between">
+          <div>
+            <DataField
+              title="Nombre de visites"
+              icon={faEye}
+              data={resource._views}
+            />
+          </div>
+          <div>
+            <ShareButton resource={resource} />
+          </div>
+        </div>
       </div>
     </div>
   );
