@@ -26,19 +26,21 @@ export default function FilterSelect({
   if (!defaultValue) return null;
 
   return (
-    <Form.Item label={entityName}>
-      <Select
-        className="w-full"
-        showSearch
-        placeholder={`Selectionner un ${entityName}`}
-        optionFilterProp="children"
-        onChange={onChange}
-        filterOption={(input, option) =>
-          (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
-        }
-        options={data}
-        defaultValue={defaultValue.value}
-      />
-    </Form.Item>
+    <Form layout="vertical">
+      <Form.Item label={<p className="font-bold">{entityName}</p>}>
+        <Select
+          className="w-full"
+          showSearch
+          placeholder={`Selectionner un ${entityName}`}
+          optionFilterProp="children"
+          onChange={onChange}
+          filterOption={(input, option) =>
+            (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
+          }
+          options={data}
+          defaultValue={defaultValue.value}
+        />
+      </Form.Item>
+    </Form>
   );
 }
