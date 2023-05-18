@@ -14,7 +14,6 @@ interface ResourceListProps {
 
 export default function ResourceList({ filters }: ResourceListProps) {
   const router = useRouter();
-  console.log(filters)
 
   const { data: alternancesAndFormations } = useQuery(
     ["resources", filters.romeCode, filters.departmentCode, filters.type],
@@ -60,7 +59,6 @@ export default function ResourceList({ filters }: ResourceListProps) {
   const goToResource = (resource: IResource) => {
     router.push(`/catalogue/${resource._id}`);
   };
-  console.log(jobs);
 
   return (
     <div className="flex flex-wrap justify-center my-5 w-full h-full">
