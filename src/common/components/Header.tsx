@@ -12,7 +12,9 @@ interface HeaderProps { }
 
 export default function Header({ }: HeaderProps) {
   const router = useRouter();
-  const { data: user } = useQuery("user", AuthService.getUser);
+  const { data: user } = useQuery({
+    queryFn: () => AuthService.getUser(),
+  });
 
   return (
     <div className="flex fixed top-0 z-10 justify-between items-center px-5 my-5 w-full">
