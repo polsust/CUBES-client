@@ -7,7 +7,7 @@ export interface IFilters {
   departmentCode: string | null;
   nafCode: string | null;
   romeCode: string | null;
-  type: string;
+  type: string | null;
 }
 
 interface FiltersProps {

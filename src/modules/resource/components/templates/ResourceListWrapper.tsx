@@ -9,10 +9,11 @@ export default function ResourceListWrapper({ }: ResourceListWrapperProps) {
     departmentCode: null,
     nafCode: null,
     romeCode: null,
+    type: null,
   });
 
   return (
-    <div className="md:w-9/12 w-11/12">
+    <div className="w-11/12 md:w-9/12">
       <h1 className="text-5xl text-center text-white">
         (RE)ssources relationnels
       </h1>
