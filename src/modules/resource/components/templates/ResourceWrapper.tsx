@@ -39,18 +39,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
         title
       )}
 
-      <div className="p-5 m-8 bg-white rounded-xl">
-        {Boolean(resource._url) && (
-          <DataField
-            icon={faLink}
-            title="Lien"
-            data={
-              <Link href={resource._url} className="text-black" target="_blank">
-                {resource._url}
-              </Link>
-            }
-          />
-        )}
+      <div className="p-5 m-auto w-full max-w-5xl bg-white rounded-xl">
         <DataField icon={faLocationPin} data={resource.ville} title="ville" />
         <DataField
           icon={faEnvelope}
@@ -63,6 +52,18 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
           <JobInfos job={resource as Job} />
         ) : (
           <AlternanceInfos alternance={resource as AlternanceAndFormation} />
+        )}
+
+        {Boolean(resource._url) && (
+          <DataField
+            icon={faLink}
+            title="Lien"
+            data={
+              <Link href={resource._url} className="text-black" target="_blank">
+                {resource._url}
+              </Link>
+            }
+          />
         )}
 
         <p className="my-20 whitespace-pre-line">{job.description}</p>
