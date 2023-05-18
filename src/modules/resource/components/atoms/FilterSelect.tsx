@@ -22,6 +22,7 @@ export default function FilterSelect({
       return initalValue;
     },
     queryKey: entityName,
+    staleTime: Infinity,
   });
   if (!defaultValue) return null;
 
