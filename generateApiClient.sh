@@ -1,0 +1,1 @@
+openapi-generator-cli generate -g typescript-axios -i spec.json -o cubes-api-client --additional-properties=npmName=cubes-api-client,supportsES6=true,withoutPrefixEnums=true,npmVersion="$(npm view cubes-api-client version)",withInterfaces=true

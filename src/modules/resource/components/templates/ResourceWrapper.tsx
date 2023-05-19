@@ -13,6 +13,7 @@ import AlternanceInfos from "../organisms/AlternanceInfos";
 import { AlternanceAndFormation } from "../../types/AlternanceAndFormation";
 import { Job } from "../../types/Job";
 import ShareButton from "../organisms/ShareButton";
+import FavoriteButton from "../organisms/FavoriteButton";
 
 interface ResourceWrapperProps {
   resource: IResource;
@@ -69,14 +70,15 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
         <p className="my-20 whitespace-pre-line">{job.description}</p>
 
         <div className="flex justify-between">
-          <div>
+          <div className="flex items-center space-x-5">
             <DataField
               title="Nombre de visites"
               icon={faEye}
               data={resource._views}
             />
+            <FavoriteButton resource={resource} />
           </div>
-          <div>
+          <div className="flex space-x-5">
             <ShareButton resource={resource} />
           </div>
         </div>

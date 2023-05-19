@@ -1,33 +1,21 @@
-import {
-  faHouse,
-  faPlusSquare,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Tabs } from "antd";
-import { bottomTabsStyle } from "../styles/BottomTabs.style";
+import { Button } from "antd";
 
 interface BottomTabsProps { }
 
 export default function BottomTabs({ }: BottomTabsProps) {
+  interface Tab {
+    icon: IconProp;
+    route: string;
+    isActive: boolean;
+  }
+
+  const tabs = [];
+
   return (
-    <Tabs
-      className="fixed bottom-0 w-full flex bg-secondary text-white"
-      css={bottomTabsStyle}
-      items={[
-        {
-          key: "1",
-          label: <FontAwesomeIcon icon={faHouse} size="3x" />,
-        },
-        {
-          key: "2",
-          label: <FontAwesomeIcon icon={faPlusSquare} size="3x" />,
-        },
-        {
-          key: "3",
-          label: <FontAwesomeIcon icon={faUser} size="3x" />,
-        },
-      ]}
-    />
+    <div className="w-full h-20 bg-secondary">
+      <Button icon={<FontAwesomeIcon icon={icon} />} />
+    </div>
   );
 }
