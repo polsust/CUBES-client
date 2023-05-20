@@ -43,7 +43,7 @@ export default function FavoriteButton({ resource }: FavoriteButtonProps) {
     >
       <Button
         disabled={!user}
-        icon={<FontAwesomeIcon icon={faStar} />}
+        icon={<FontAwesomeIcon icon={faStar} color={isFavorite ? "gold" : "black"} />}
         type="default"
         onClick={async () => {
           await likeMutation.mutateAsync();
