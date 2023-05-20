@@ -16,12 +16,15 @@ import { Job } from "../../types/Job";
 import ShareButton from "../organisms/ShareButton";
 import FavoriteButton from "../organisms/FavoriteButton";
 import Paper from "@cubes/common/components/atoms/Paper";
+import CommentSection from "../organisms/CommentSection";
+import useUser from "@cubes/modules/auth/hooks/useUser";
 
 interface ResourceWrapperProps {
   resource: IResource;
 }
 
 export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
+  const user = useUser();
   const job = resource as Job;
   const isJob = Boolean(job.description);
 
@@ -42,7 +45,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
         title
       )}
 
-      <Paper className="m-auto w-full max-w-5xl">
+      <Paper className="m-auto w-full max-w-5xl mb-5">
         <DataField icon={faLocationPin} data={resource.ville} title="ville" />
         <DataField
           icon={faEnvelope}
@@ -71,8 +74,8 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
 
         <p className="my-20 whitespace-pre-line">{job.description}</p>
 
-        <div className="flex justify-between flex-wrap">
-          <div className="flex items-center space-x-5 m-auto">
+        <div className="flex flex-wrap justify-between">
+          <div className="flex items-center m-auto space-x-5">
             <DataField
               title="Nombre de visites"
               icon={faEye}
@@ -85,11 +88,13 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
             />
             <FavoriteButton resource={resource} />
           </div>
-          <div className="flex space-x-5 m-auto">
+          <div className="flex m-auto space-x-5">
             <ShareButton resource={resource} />
           </div>
         </div>
       </Paper>
+
+      {Boolean(user) && <CommentSection resource={resource} />}
     </div>
   );
 }
