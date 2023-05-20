@@ -14,7 +14,7 @@ export default function ProfilePicture({
 
   return (
     <div
-      className={`relative text-white capitalize bg-blue-400 rounded-full ${size == "sm" && "w-16 h-16 text-4xl"
+      className={`relative text-white capitalize bg-blue-400 rounded-full aspect-square ${size == "sm" && "w-16 h-16 text-4xl"
         } ${size == "md" && "w-32 h-32 text-7xl"} ${size == "lg" && "w-48 h-48 text-8xl"
         } `}
     >
