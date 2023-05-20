@@ -71,8 +71,8 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
 
         <p className="my-20 whitespace-pre-line">{job.description}</p>
 
-        <div className="flex justify-between">
-          <div className="flex items-center space-x-5">
+        <div className="flex justify-between flex-wrap">
+          <div className="flex items-center space-x-5 m-auto">
             <DataField
               title="Nombre de visites"
               icon={faEye}
@@ -85,7 +85,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
             />
             <FavoriteButton resource={resource} />
           </div>
-          <div className="flex space-x-5">
+          <div className="flex space-x-5 m-auto">
             <ShareButton resource={resource} />
           </div>
         </div>
