@@ -30,8 +30,11 @@ export default function ProfileWrapper({ }: ProfileWrapperProps) {
   return (
     <div className="w-full">
       <Heading>Fiche Citoyen</Heading>
-      <div className="flex flex-col-reverse justify-end w-full md:flex-row items-start">
-        <ResourceList resources={favoriteResources ?? []} />
+      <div className="flex flex-col-reverse justify-end items-start w-full md:flex-row">
+        <div>
+          <Heading>Favoris</Heading>
+          <ResourceList resources={favoriteResources ?? []} />
+        </div>
         <ProfileDetails className="mb-10 ml-0 md:mb-0 md:ml-10" user={user} />
       </div>
     </div>
