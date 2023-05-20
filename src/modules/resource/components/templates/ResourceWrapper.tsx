@@ -15,6 +15,7 @@ import { AlternanceAndFormation } from "../../types/AlternanceAndFormation";
 import { Job } from "../../types/Job";
 import ShareButton from "../organisms/ShareButton";
 import FavoriteButton from "../organisms/FavoriteButton";
+import Paper from "@cubes/common/components/atoms/Paper";
 
 interface ResourceWrapperProps {
   resource: IResource;
@@ -41,7 +42,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
         title
       )}
 
-      <div className="p-5 m-auto w-full max-w-5xl bg-white rounded-xl">
+      <Paper className="m-auto w-full max-w-5xl">
         <DataField icon={faLocationPin} data={resource.ville} title="ville" />
         <DataField
           icon={faEnvelope}
@@ -88,7 +89,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
             <ShareButton resource={resource} />
           </div>
         </div>
-      </div>
+      </Paper>
     </div>
   );
 }
