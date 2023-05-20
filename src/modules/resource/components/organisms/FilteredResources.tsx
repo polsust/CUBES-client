@@ -3,18 +3,13 @@ import { useQuery } from "react-query";
 import { IFilters } from "../molecules/Filters";
 import { AlternanceAndFormation } from "../../types/AlternanceAndFormation";
 import { Job } from "../../types/Job";
-import AlternanceAndFormationCard from "../molecules/AlternanceAndFormationCard";
-import JobCard from "../molecules/JobCard";
-import { useRouter } from "next/router";
-import { IResource } from "../../types/Resource";
+import ResourceList from "./ResourceList";
 
 interface FilteredResourcesProps {
   filters: IFilters;
 }
 
 export default function FilteredResources({ filters }: FilteredResourcesProps) {
-  const router = useRouter();
-
   const { data: alternancesAndFormations } = useQuery(
     ["resources", filters.romeCode, filters.departmentCode, filters.type],
     async () => {
@@ -56,23 +51,9 @@ export default function FilteredResources({ filters }: FilteredResourcesProps) {
     }
   );
 
-  const goToResource = (resource: IResource) => {
-    router.push(`/catalogue/${resource._id}`);
-  };
-
   return (
-    <div className="flex flex-wrap justify-center my-5 w-full h-full">
-      {(alternancesAndFormations ?? []).map((alternanceAndFormation, i) => (
-        <AlternanceAndFormationCard
-          key={i}
-          alternanceAndFormation={alternanceAndFormation}
-          onClick={() => goToResource(alternanceAndFormation)}
-        />
-      ))}
-
-      {(jobs ?? []).map((job, i) => (
-        <JobCard onClick={() => goToResource(job)} key={i} job={job} />
-      ))}
-    </div>
+    <ResourceList
+      resources={[...(alternancesAndFormations ?? []), ...(jobs ?? [])]}
+    />
   );
 }
