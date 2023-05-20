@@ -19,6 +19,8 @@ export default function FavoriteButton({ resource }: FavoriteButtonProps) {
     },
   });
 
+  const user = useUser();
+
   const { data: isFavorite, refetch: refetchIsFavorite } = useQuery({
     queryKey: ["isFavorite", resource._id],
     queryFn: async (): Promise<boolean> => {
@@ -32,9 +34,8 @@ export default function FavoriteButton({ resource }: FavoriteButtonProps) {
         (ressource) => ressource._id === resource._id
       );
     },
+    enabled: Boolean(user),
   });
-
-  const user = useUser();
 
   return (
     <Tooltip
@@ -42,7 +43,12 @@ export default function FavoriteButton({ resource }: FavoriteButtonProps) {
     >
       <Button
         disabled={!user}
-        icon={<FontAwesomeIcon icon={faStar} color={isFavorite ? "gold" : "black"} />}
+        icon={
+          <FontAwesomeIcon
+            icon={faStar}
+            color={isFavorite ? "gold" : "black"}
+          />
+        }
         type="default"
         onClick={async () => {
           await likeMutation.mutateAsync();
