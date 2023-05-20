@@ -15,12 +15,12 @@ export default function AuthInterceptor({ children }: ChildrenProps) {
       route.path === router.route;
     });
 
-    const targetRoute =
+    const redirectRoute =
       router.route === ROUTES.login.path
         ? ROUTES.login.path
         : ROUTES.signup.path;
 
-    if (currentRoute?.requiresAuth) router.replace(targetRoute);
+    if (currentRoute?.requiresAuth) router.replace(redirectRoute);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.route]);
