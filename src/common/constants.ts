@@ -18,7 +18,7 @@ export const ROUTES = {
     requiresAuth: false,
   },
   profile: {
-    path: "/profil",
+    path: "/mon-profil",
     requiresAuth: true,
   }
 };
