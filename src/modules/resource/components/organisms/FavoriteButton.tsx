@@ -27,7 +27,6 @@ export default function FavoriteButton({ resource }: FavoriteButtonProps) {
 
       // @ts-ignore
       const favoriteRessources: IResource[] = res.data.data;
-      console.log(favoriteRessources);
 
       return favoriteRessources.some(
         (ressource) => ressource._id === resource._id

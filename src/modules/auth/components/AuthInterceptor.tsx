@@ -20,7 +20,6 @@ export default function AuthInterceptor({ children }: ChildrenProps) {
         ? ROUTES.login.path
         : ROUTES.signup.path;
 
-    console.log(currentRoute);
     if (currentRoute?.requiresAuth && !user) router.replace(redirectRoute);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
