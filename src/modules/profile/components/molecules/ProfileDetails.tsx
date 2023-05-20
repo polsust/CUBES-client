@@ -14,7 +14,9 @@ export default function ProfileDetails({
   className,
 }: ProfileDetailsProps) {
   return (
-    <Paper className={`flex flex-col items-center ${className}`}>
+    <Paper
+      className={`flex flex-col items-center max-h-full md:sticky top-32 md:min-w-max min-w-full ${className}`}
+    >
       <ProfilePicture user={user} />
       <div>
         <DataField icon={faEnvelope} data={user.email} />
