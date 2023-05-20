@@ -1,5 +1,6 @@
 import { IResource } from "../../types/Resource";
 import {
+  faComment,
   faEnvelope,
   faEye,
   faLink,
@@ -75,6 +76,11 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
               title="Nombre de visites"
               icon={faEye}
               data={resource._views}
+            />
+            <DataField
+              title="Nombre de commentaires"
+              icon={faComment}
+              data={resource._comments?.length ?? 0}
             />
             <FavoriteButton resource={resource} />
           </div>
