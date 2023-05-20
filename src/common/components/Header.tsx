@@ -27,7 +27,7 @@ export default function Header({ }: HeaderProps) {
           />
         </Link>
       </div>
-      <div>
+      <div className="space-x-2">
         <Button
           type="default"
           size="large"
@@ -43,6 +43,19 @@ export default function Header({ }: HeaderProps) {
         >
           {Boolean(user) ? "Se deconnecter" : "Se connecter"}
         </Button>
+
+        {Boolean(user) && (
+          <Button
+            type="default"
+            size="large"
+            icon={<FontAwesomeIcon icon={faUser} />}
+            onClick={() => {
+              router.push(ROUTES.profile.path);
+            }}
+          >
+            Profil
+          </Button>
+        )}
 
         {[USER_ROLES.admin, USER_ROLES.supAdmin, USER_ROLES.moderator].includes(
           user?.IdRole ?? "0"
