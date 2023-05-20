@@ -4,19 +4,16 @@ import Link from "next/link";
 import { ROUTES, USER_ROLES } from "../constants";
 import { useRouter } from "next/router";
 import AuthService from "@cubes/modules/auth/services/AuthService";
-import { useQuery } from "react-query";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons";
 import { queryClient } from "../providers/ReactQueryProvider";
+import useUser from "@cubes/modules/auth/hooks/useUser";
 
 interface HeaderProps { }
 
 export default function Header({ }: HeaderProps) {
   const router = useRouter();
-  const { data: user } = useQuery({
-    queryKey: ["user"],
-    queryFn: () => AuthService.getUser(),
-  });
+  const user = useUser();
 
   return (
     <div className="flex fixed top-0 z-10 justify-between items-center px-5 my-5 w-full">

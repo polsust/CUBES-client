@@ -2,9 +2,9 @@ import { cubesApiService } from "@cubes/common/services/CubesApiService";
 import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Form, Input, Tooltip, message } from "antd";
-import { useMutation, useQuery } from "react-query";
+import { useMutation } from "react-query";
 import { IResource } from "../../types/Resource";
-import AuthService from "@cubes/modules/auth/services/AuthService";
+import useUser from "@cubes/modules/auth/hooks/useUser";
 
 interface ShareButtonProps {
   resource: IResource;
@@ -26,10 +26,7 @@ export default function ShareButton({ resource }: ShareButtonProps) {
     },
   });
 
-  const { data: user } = useQuery({
-    queryKey: ["user"],
-    queryFn: () => AuthService.getUser(),
-  });
+  const user = useUser();
 
   return (
     <Form

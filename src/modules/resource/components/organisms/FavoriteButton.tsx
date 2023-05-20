@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useMutation, useQuery } from "react-query";
 import { cubesApiService } from "@cubes/common/services/CubesApiService";
-import AuthService from "@cubes/modules/auth/services/AuthService";
+import useUser from "@cubes/modules/auth/hooks/useUser";
 
 interface FavoriteButtonProps {
   resource: IResource;
@@ -35,10 +35,7 @@ export default function FavoriteButton({ resource }: FavoriteButtonProps) {
     },
   });
 
-  const { data: user } = useQuery({
-    queryKey: ["user"],
-    queryFn: () => AuthService.getUser(),
-  });
+  const user = useUser();
 
   return (
     <Tooltip
