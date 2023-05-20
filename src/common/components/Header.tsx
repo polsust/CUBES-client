@@ -44,7 +44,7 @@ export default function Header({ }: HeaderProps) {
           {Boolean(user) ? "Se deconnecter" : "Se connecter"}
         </Button>
 
-        {[USER_ROLES.admin, USER_ROLES.supAdmin].includes(
+        {[USER_ROLES.admin, USER_ROLES.supAdmin, USER_ROLES.moderator].includes(
           user?.IdRole ?? "0"
         ) && (
             <Button
