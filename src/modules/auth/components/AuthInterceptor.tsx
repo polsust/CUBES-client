@@ -2,17 +2,17 @@ import { ROUTES } from "@cubes/common/constants";
 import ChildrenProps from "@cubes/common/types/ChildrenProps";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import useUser from "../hooks/useUser";
 
 export default function AuthInterceptor({ children }: ChildrenProps) {
   const router = useRouter();
-
-  // const { data: user } = useQuery("user", () => router.isReady);
+  const user = useUser();
 
   useEffect(() => {
     if (!router.isReady) return;
 
     const currentRoute = Object.values(ROUTES).find((route) => {
-      route.path === router.route;
+      return route.path === router.route;
     });
 
     const redirectRoute =
@@ -20,7 +20,8 @@ export default function AuthInterceptor({ children }: ChildrenProps) {
         ? ROUTES.login.path
         : ROUTES.signup.path;
 
-    if (currentRoute?.requiresAuth) router.replace(redirectRoute);
+    console.log(currentRoute);
+    if (currentRoute?.requiresAuth && !user) router.replace(redirectRoute);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.route]);
