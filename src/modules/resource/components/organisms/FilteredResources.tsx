@@ -8,11 +8,11 @@ import JobCard from "../molecules/JobCard";
 import { useRouter } from "next/router";
 import { IResource } from "../../types/Resource";
 
-interface ResourceListProps {
+interface FilteredResourcesProps {
   filters: IFilters;
 }
 
-export default function ResourceList({ filters }: ResourceListProps) {
+export default function FilteredResources({ filters }: FilteredResourcesProps) {
   const router = useRouter();
 
   const { data: alternancesAndFormations } = useQuery(
