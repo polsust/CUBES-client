@@ -1,8 +1,9 @@
 import { User } from "@cubes/modules/auth/types/Jwt";
+import { UserDto } from "cubes-api-client";
 import { useMemo } from "react";
 
 interface ProfilePictureProps {
-  user: User;
+  user: User | UserDto;
   size?: "sm" | "md" | "lg";
 }
 
@@ -10,10 +11,10 @@ export default function ProfilePicture({
   user,
   size = "md",
 }: ProfilePictureProps) {
-  const fNameInital = user.fName.at(0);
-  const lNameInital = user.lName.at(0);
+  const fNameInital = user.fName!.at(0);
+  const lNameInital = user.lName!.at(0);
 
-  const fullNameLength = user.fName.length + user.lName.length;
+  const fullNameLength = user.fName!.length + user.lName!.length;
 
   const colors = [
     "#94a3b8",
