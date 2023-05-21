@@ -36,7 +36,7 @@ export default function BottomTabs({ }: BottomTabsProps) {
     },
     {
       icon: faPlusSquare,
-      route: "",
+      route: ROUTES.adminDashboard.path,
       isAllowed: [
         USER_ROLES.admin,
         USER_ROLES.supAdmin,
