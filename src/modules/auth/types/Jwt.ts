@@ -6,6 +6,8 @@ export interface JwtContent extends JwtUser {
 
 interface JwtUser {
   email: string;
-  firstname: string;
+  fName: string;
+  lName: string;
   IdRole: string;
+  login: string;
 }

@@ -27,8 +27,11 @@ export default class AuthService {
     const decoded = jose.decodeJwt(jwt);
 
     const jwtContent: JwtContent = {
-      email: decoded.email as string,
-      firstname: decoded.unique_name as string,
+      login: decoded.Login as string,
+      // @ts-ignore
+      email: decoded.email[0] as string,
+      fName: decoded.unique_name as string,
+      lName: decoded.family_name as string,
       IdRole: decoded.Idrole as string,
       exp: decoded.exp as number,
       iat: decoded.iat as number,
