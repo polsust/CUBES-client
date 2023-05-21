@@ -31,7 +31,7 @@ export default function CommentCreator({ resource }: CommentCreatorProps) {
   if (!user) return null;
 
   return (
-    <CommentLayout>
+    <CommentLayout userId={user._id}>
       <div className="flex flex-col items-end m-2 mt-5 ml-5 w-full">
         <Input.TextArea
           rows={4}

@@ -1,16 +1,16 @@
-import { JwtContent } from "@cubes/modules/auth/types/Jwt";
-
 interface ProfilePictureProps {
-  user: JwtContent;
+  firstname: string;
+  lastname: string;
   size?: "sm" | "md" | "lg";
 }
 
 export default function ProfilePicture({
-  user,
+  firstname,
+  lastname,
   size = "md",
 }: ProfilePictureProps) {
-  const fNameInital = user.firstname.at(0);
-  const lNameInital = "fake lastname".at(0);
+  const fNameInital = firstname.at(0);
+  const lNameInital = lastname.at(0);
 
   return (
     <div
