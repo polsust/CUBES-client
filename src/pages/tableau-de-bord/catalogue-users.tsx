@@ -7,50 +7,13 @@ export const getServerSideProps: GetServerSideProps<{
   users: UserDto[];
 }> = async () => {
   const instance = axios.create();
-  // const res = await instance.get(
-  //   `${process.env.NEXT_PUBLIC_API_URL}/api/`
-  // );
-
-  // @ts-ignore
-  const users = [
-    {
-      id: 1,
-      fName: "pol",
-      lName: "sust",
-      email: "pol@mail.com",
-      login: "polongas",
-      activation: true,
-      idRole: 1,
-    },
-    {
-      fName: "pol",
-      lName: "sust",
-      email: "pol@mail.com",
-      login: "polongas",
-      activation: true,
-      idRole: 1,
-    },
-    {
-      fName: "pol",
-      lName: "sust",
-      email: "pol@mail.com",
-      login: "polongas",
-      activation: true,
-      idRole: 1,
-    },
-    {
-      fName: "pol",
-      lName: "sust",
-      email: "pol@mail.com",
-      login: "polongas",
-      activation: true,
-      idRole: 1,
-    },
-  ];
+  const res = await instance.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/User/GetAllUser`
+  );
 
   return {
     props: {
-      users,
+      users: res.data.data,
     },
   };
 };
