@@ -18,7 +18,7 @@ export default function DataField({
   if (!data === null) return null;
 
   return (
-    <p title={title ?? (label as string) ?? ""}>
+    <p title={title ?? (label as string) ?? ""} className="whitespace-nowrap">
       {icon && <FontAwesomeIcon icon={icon} className="mr-2" />}
       {Boolean(label) && <b>{label}:</b>} {data}
     </p>
