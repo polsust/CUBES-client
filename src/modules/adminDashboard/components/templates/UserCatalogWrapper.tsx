@@ -37,7 +37,7 @@ export default function UserCatalogWrapper({ users }: UserCatalogWrapperProps) {
         const action = user.activation ? "bannir" : "pardoner";
         return (
           <ProfileDetails mode="list" user={user} key={i}>
-            <div className="flex justify-center w-full">
+            <div className="flex justify-end w-full">
               <Popconfirm
                 title={`Voulez-vous vraiment ${action} ce user ?`}
                 onConfirm={() => banMutation.mutate(user)}
