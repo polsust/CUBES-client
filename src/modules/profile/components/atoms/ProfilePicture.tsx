@@ -48,7 +48,7 @@ export default function ProfilePicture({
         } ${size == "md" && "w-32 h-32 text-7xl"} ${size == "lg" && "w-48 h-48 text-8xl"
         } `}
     >
-      <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none">
         {fNameInital}
         {lNameInital}
       </span>
