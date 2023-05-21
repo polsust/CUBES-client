@@ -16,8 +16,13 @@ interface UserCatalogWrapperProps {
 export default function UserCatalogWrapper({ users }: UserCatalogWrapperProps) {
   const router = useRouter();
   const banMutation = useMutation({
-    mutationFn: (id: number) => {
-      return cubesApiService().user.apiUserArchiveUserIdPut(id);
+    mutationFn: (user: UserDto) => {
+      if (user.activation) {
+        return cubesApiService().user.apiUserArchiveUserIdPut(user.id!);
+      }
+      return cubesApiService().user.apiUserUpdateUserIdPut(user.id!, {
+        activation: true,
+      });
     },
     onSuccess: () => {
       router.replace(router.asPath);
@@ -35,7 +40,7 @@ export default function UserCatalogWrapper({ users }: UserCatalogWrapperProps) {
             <div className="flex justify-center w-full">
               <Popconfirm
                 title={`Voulez-vous vraiment ${action} ce user ?`}
-                onConfirm={() => banMutation.mutate(user.id!)}
+                onConfirm={() => banMutation.mutate(user)}
               >
                 <Button
                   className="capitalize"
