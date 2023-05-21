@@ -5,7 +5,7 @@ import { faEnvelope, faUser } from "@fortawesome/free-solid-svg-icons";
 import Paper from "@cubes/common/components/atoms/Paper";
 
 interface ProfileDetailsProps {
-  user: JwtContent;
+  user: JwtContent | UserDto;
   className?: string;
 }
 
