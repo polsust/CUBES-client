@@ -17,14 +17,13 @@ export default function ProfileDetails({
     <Paper
       className={`flex flex-col items-center max-h-full md:sticky top-32 md:min-w-max min-w-full ${className}`}
     >
-      <ProfilePicture
-        firstname={user.fName}
-        lastname={user.lName}
-        size="md"
-      />
+      <ProfilePicture firstname={user.fName} lastname={user.lName} size="md" />
       <div>
+        <p className="font-bold text-center capitalize">
+          {user.fName} {user.lName}
+        </p>
+        <DataField icon={faUser} data={user.login} />
         <DataField icon={faEnvelope} data={user.email} />
-        <DataField icon={faUser} data={user.fName} />
       </div>
     </Paper>
   );
