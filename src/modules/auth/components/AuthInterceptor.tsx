@@ -22,6 +22,15 @@ export default function AuthInterceptor({ children }: ChildrenProps) {
 
     if (currentRoute?.requiresAuth && !user) router.replace(redirectRoute);
 
+    if (
+      // @ts-ignore
+      currentRoute?.roles > 0 &&
+      // @ts-ignore
+      !currentRoute?.roles.includes(user?.IdRole)
+    ) {
+      router.replace(redirectRoute);
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.route]);
 

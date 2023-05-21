@@ -64,7 +64,7 @@ export default function Header({ }: HeaderProps) {
               type="default"
               size="large"
               onClick={() => {
-                router.push(ROUTES.login.path);
+                router.push(ROUTES.adminDashboard.path);
               }}
             >
               Tableau de bord
