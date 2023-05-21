@@ -10,6 +10,7 @@ interface CommentListProps {
 
 export default function CommentList({ resource }: CommentListProps) {
   const { data: comments } = useQuery({
+    queryKey: ["comments", resource._id],
     queryFn: async () => {
       const res =
         await cubesApiService().comments.apiCommentsGetCommentsPerRessourceIdRessourceGet(

@@ -5,9 +5,10 @@ import { useMutation } from "react-query";
 import { cubesApiService } from "@cubes/common/services/CubesApiService";
 import { useState } from "react";
 import { IResource } from "../../types/Resource";
+import { queryClient } from "@cubes/common/providers/ReactQueryProvider";
 
-interface CommentCreatorProps { 
-  resource: IResource
+interface CommentCreatorProps {
+  resource: IResource;
 }
 
 export default function CommentCreator({ resource }: CommentCreatorProps) {
@@ -15,14 +16,15 @@ export default function CommentCreator({ resource }: CommentCreatorProps) {
 
   const commentMutation = useMutation({
     mutationFn: () => {
-      console.log("mutation")
       return cubesApiService().comments.apiCommentsPostCommentWithTokenPost({
         id: resource._id,
         content: comment,
+        ressourceId: resource._id,
       });
     },
     onSuccess: () => {
       setComment("");
+      queryClient.invalidateQueries(["comments", resource._id]);
       message.success("Commentaire ajouté avec succès");
     },
   });
@@ -31,7 +33,7 @@ export default function CommentCreator({ resource }: CommentCreatorProps) {
   if (!user) return null;
 
   return (
-    <CommentLayout userId={user._id}>
+    <CommentLayout>
       <div className="flex flex-col items-end m-2 mt-5 ml-5 w-full">
         <Input.TextArea
           rows={4}
