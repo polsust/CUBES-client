@@ -10,9 +10,12 @@ export default class AuthService {
   }
 
   public static async login(values: SignupFormValues): Promise<boolean> {
-    const { data } = await cubesApiService().auth.apiAuthLoginPost(values);
+    const res = await cubesApiService().auth.apiAuthLoginPost(values);
+    // @ts-ignore
+    if (!res) return false;
 
-    const jwt = data.data;
+    // @ts-ignore
+    const jwt = res.data.data;
 
     this.logout();
     LocalStorageService.setItem<string>("token", jwt.trim());
