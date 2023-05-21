@@ -2,7 +2,7 @@ import GoBackButton from "@cubes/common/components/atoms/GoBackButton";
 import Heading from "@cubes/common/components/atoms/Heading";
 import { cubesApiService } from "@cubes/common/services/CubesApiService";
 import ProfileDetails from "@cubes/modules/profile/components/molecules/ProfileDetails";
-import { faBan, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faBan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Popconfirm } from "antd";
 import { UserDto } from "cubes-api-client";
