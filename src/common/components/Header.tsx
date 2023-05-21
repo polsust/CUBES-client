@@ -5,7 +5,7 @@ import { ROUTES, USER_ROLES } from "../constants";
 import { useRouter } from "next/router";
 import AuthService from "@cubes/modules/auth/services/AuthService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faPlusSquare, faPowerOff, faUser } from "@fortawesome/free-solid-svg-icons";
 import { queryClient } from "../providers/ReactQueryProvider";
 import useUser from "@cubes/modules/auth/hooks/useUser";
 
@@ -61,6 +61,7 @@ export default function Header({ }: HeaderProps) {
           user?.IdRole ?? "0"
         ) && (
             <Button
+              icon={<FontAwesomeIcon icon={faPlusSquare} />}
               type="default"
               size="large"
               onClick={() => {
