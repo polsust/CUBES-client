@@ -35,7 +35,11 @@ export default function ProfileWrapper({ }: ProfileWrapperProps) {
           <Heading>Favoris</Heading>
           <ResourceList resources={favoriteResources ?? []} />
         </div>
-        <ProfileDetails className="mb-10 ml-0 md:mb-0 md:ml-10" user={user} />
+        <ProfileDetails
+          sticky
+          className="mb-10 ml-0 md:mb-0 md:ml-10"
+          user={user}
+        />
       </div>
     </div>
   );
