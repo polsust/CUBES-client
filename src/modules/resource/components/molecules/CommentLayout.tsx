@@ -17,7 +17,7 @@ export default function CommentLayout({
 
   return (
     <div className={`flex ${className}`}>
-      <ProfilePicture firstname={user.fName} lastname={user.lName} size="sm" />
+      <ProfilePicture user={user} size="sm" />
       <div className="flex flex-col ml-4 w-full">
         <p className="my-1 ml-5 capitalize">
           {user.fName} {user.lName}

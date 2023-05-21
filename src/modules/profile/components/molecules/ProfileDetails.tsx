@@ -17,7 +17,7 @@ export default function ProfileDetails({
     <Paper
       className={`flex flex-col items-center max-h-full md:sticky top-32 md:min-w-max min-w-full ${className}`}
     >
-      <ProfilePicture firstname={user.fName} lastname={user.lName} size="md" />
+      <ProfilePicture user={user} size="md" />
       <div>
         <p className="font-bold text-center capitalize">
           {user.fName} {user.lName}
