@@ -19,6 +19,14 @@ export default function FavoriteButton({ resource }: FavoriteButtonProps) {
     },
   });
 
+  const dislikeMutation = useMutation({
+    mutationFn: () => {
+      return cubesApiService().ressource.apiRessourceUserFavIdRessourceDeletefavoriteDelete(
+        resource._id
+      );
+    },
+  });
+
   const user = useUser();
 
   const { data: isFavorite, refetch: refetchIsFavorite } = useQuery({
@@ -28,7 +36,8 @@ export default function FavoriteButton({ resource }: FavoriteButtonProps) {
         await cubesApiService().ressource.apiRessourceRessourceByUserGet();
 
       // @ts-ignore
-      const favoriteRessources: IResource[] = res.data.data;
+      const favoriteRessources: IResource[] | null = res.data.data;
+      if (!favoriteRessources) return false;
 
       return favoriteRessources.some(
         (ressource) => ressource._id === resource._id
@@ -51,7 +60,11 @@ export default function FavoriteButton({ resource }: FavoriteButtonProps) {
         }
         type="default"
         onClick={async () => {
-          await likeMutation.mutateAsync();
+          if (isFavorite) {
+            await dislikeMutation.mutateAsync();
+          } else {
+            await likeMutation.mutateAsync();
+          }
           refetchIsFavorite();
         }}
       >
