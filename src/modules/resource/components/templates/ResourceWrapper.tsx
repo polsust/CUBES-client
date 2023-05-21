@@ -45,7 +45,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
         title
       )}
 
-      <Paper className="m-auto w-full max-w-5xl mb-5">
+      <Paper className="m-auto mb-5 w-full max-w-5xl">
         <DataField icon={faLocationPin} data={resource.ville} title="ville" />
         <DataField
           icon={faEnvelope}
@@ -94,7 +94,7 @@ export default function ResourceWrapper({ resource }: ResourceWrapperProps) {
         </div>
       </Paper>
 
-      {Boolean(user) && <CommentSection resource={resource} />}
+      <CommentSection resource={resource} />
     </div>
   );
 }
