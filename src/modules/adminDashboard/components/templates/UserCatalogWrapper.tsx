@@ -17,12 +17,7 @@ export default function UserCatalogWrapper({ users }: UserCatalogWrapperProps) {
   const router = useRouter();
   const banMutation = useMutation({
     mutationFn: (user: UserDto) => {
-      if (user.activation) {
-        return cubesApiService().user.apiUserArchiveUserIdPut(user.id!);
-      }
-      return cubesApiService().user.apiUserUpdateUserIdPut(user.id!, {
-        activation: true,
-      });
+      return cubesApiService().user.apiUserArchiveUserIdPut(user.id!);
     },
     onSuccess: () => {
       router.replace(router.asPath);
@@ -34,24 +29,20 @@ export default function UserCatalogWrapper({ users }: UserCatalogWrapperProps) {
       <Heading>Liste des utilisateurs</Heading>
       <GoBackButton />
       {users.map((user, i) => {
-        const action = user.activation ? "bannir" : "pardoner";
         return (
           <ProfileDetails mode="list" user={user} key={i}>
             <div className="flex justify-end w-full">
               <Popconfirm
-                title={`Voulez-vous vraiment ${action} ce user ?`}
+                title={`Voulez-vous vraiment bannir ce user ?`}
                 onConfirm={() => banMutation.mutate(user)}
+                disabled={!user.activation}
               >
                 <Button
+                  disabled={!user.activation}
                   className="capitalize"
-                  icon={
-                    <FontAwesomeIcon
-                      icon={user.activation ? faBan : faCheckCircle}
-                      color={user.activation ? "red" : "green"}
-                    />
-                  }
+                  icon={<FontAwesomeIcon icon={faBan} color="red" />}
                 >
-                  {action}
+                  {user.activation ? "Bannir" : "Banni"}
                 </Button>
               </Popconfirm>
             </div>
