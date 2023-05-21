@@ -11,12 +11,13 @@ export default function CommentLayout({
   userId,
 }: CommentLayoutProps) {
   const user = useUser(userId);
+  if (!user) return null;
 
   return (
     <div className="flex">
       <ProfilePicture
-        firstname={user.firstname}
-        lastname={user.lastname}
+        firstname={user.fName}
+        lastname={user.lName}
         size="sm"
       />
       {children}

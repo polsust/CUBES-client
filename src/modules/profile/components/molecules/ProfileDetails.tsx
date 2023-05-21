@@ -18,13 +18,13 @@ export default function ProfileDetails({
       className={`flex flex-col items-center max-h-full md:sticky top-32 md:min-w-max min-w-full ${className}`}
     >
       <ProfilePicture
-        firstname={user.firstname}
-        lastname={user.lastname}
+        firstname={user.fName}
+        lastname={user.lName}
         size="md"
       />
       <div>
         <DataField icon={faEnvelope} data={user.email} />
-        <DataField icon={faUser} data={user.firstname} />
+        <DataField icon={faUser} data={user.fName} />
       </div>
     </Paper>
   );
