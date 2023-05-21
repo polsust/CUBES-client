@@ -8,6 +8,7 @@ import {
   faShareAlt,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
+import Heading from "@cubes/common/components/atoms/Heading";
 
 interface StatsWrapperProps {
   stats: Stats;
@@ -16,6 +17,7 @@ interface StatsWrapperProps {
 export default function StatsWrapper({ stats }: StatsWrapperProps) {
   return (
     <div className="w-full max-w-xl">
+      <Heading>Statistiques</Heading>
       <GoBackButton />
       <Paper className="mt-5 w-full">
         <DataField label="Visites" icon={faEye} data={stats?._visits} />
