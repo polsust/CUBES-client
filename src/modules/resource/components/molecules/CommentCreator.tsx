@@ -41,7 +41,11 @@ export default function CommentCreator({ resource }: CommentCreatorProps) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-        <Button className="mt-3" onClick={() => commentMutation.mutate()}>
+        <Button
+          className="mt-3"
+          onClick={() => commentMutation.mutate()}
+          disabled={comment.length == 0}
+        >
           Commenter
         </Button>
       </div>
