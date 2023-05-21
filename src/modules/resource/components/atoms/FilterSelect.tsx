@@ -1,4 +1,5 @@
 import { Form, Select } from "antd";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 
 interface FilterSelectProps {
@@ -6,7 +7,7 @@ interface FilterSelectProps {
     value: string;
     label: string;
   }[];
-  onChange: (value: string) => void;
+  onChange: (value: string | undefined) => void;
   entityName: string;
 }
 
@@ -18,12 +19,16 @@ export default function FilterSelect({
   const { data: defaultValue } = useQuery({
     queryFn: () => {
       const initalValue = data[Math.floor(Math.random() * data.length)];
-      onChange(initalValue.value);
+
       return initalValue;
     },
     queryKey: entityName,
     staleTime: Infinity,
   });
+  useEffect(() => {
+    onChange(defaultValue?.value);
+  }, [defaultValue]);
+
   if (!defaultValue) return null;
 
   return (
