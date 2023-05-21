@@ -10,7 +10,7 @@ interface CommentSectionProps {
 export default function CommentSection({ resource }: CommentSectionProps) {
   const user = useUser();
   return (
-    <div>
+    <div className="m-2 md:m-0">
       {Boolean(user) && <CommentCreator resource={resource} />}
       <CommentList resource={resource} />
     </div>
