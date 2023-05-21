@@ -16,7 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/font": "13.1.2",
     "antd": "^5.3.1",
-    "cubes-api-client": "^0.0.11",
+    "cubes-api-client": "^0.0.12",
     "jose": "^4.14.4",
     "next": "13.1.2",
     "react": "18.2.0",

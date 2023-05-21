@@ -1146,10 +1146,10 @@ csstype@^3.0.10, csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.1.tgz#841b532c45c758ee546a11d5bd7b7b473c8c30b9"
   integrity sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==
 
-cubes-api-client@^0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/cubes-api-client/-/cubes-api-client-0.0.11.tgz#7f98583a55ee5224c347cab1155e6fbc9a772746"
-  integrity sha512-RsTWRoD9YI22ChcnV4s41cBomK604fv60Zk8TeCPQ4ThQd73wQcTLBMMXzPd616lHS1dPx4Eeo+lcM/Auv42jQ==
+cubes-api-client@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/cubes-api-client/-/cubes-api-client-0.0.12.tgz#38a166549dd3e4a7c358db13f8239834f00a49fe"
+  integrity sha512-8y+oABba6TK5PZmOnF/mm0FeB/8dKF69uBoC5mxGe56Kgh38lP+S3zFJtzd5eqe0vig1d2NHC0WqVJVEz0R5yQ==
   dependencies:
     axios "^0.27.2"
 

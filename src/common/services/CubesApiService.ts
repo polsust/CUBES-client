@@ -55,5 +55,6 @@ export function cubesApiService() {
     comments: new CommentsApi(conf, undefined, axiosInstance),
     ressource: new RessourceApi(conf, undefined, axiosInstance),
     auth: new AuthApi(conf, undefined, axiosInstance),
+    stats: new StatsApi(conf, undefined, axiosInstance),
   };
 }
