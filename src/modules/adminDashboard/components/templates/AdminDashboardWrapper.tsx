@@ -1,5 +1,7 @@
 import Heading from "@cubes/common/components/atoms/Heading";
 import { ROUTES } from "@cubes/common/constants";
+import { faChartSimple, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "antd";
 import { useRouter } from "next/router";
 
@@ -11,10 +13,12 @@ export default function AdminDashboardWrapper({ }: AdminDashboardWrapperProps) {
     {
       route: ROUTES.catalogUsers.path,
       label: "Catalogue des utilisateurs",
+      icon: faUsers,
     },
     {
       route: ROUTES.stats.path,
       label: "Statistiques",
+      icon: faChartSimple,
     },
   ];
 
@@ -23,11 +27,12 @@ export default function AdminDashboardWrapper({ }: AdminDashboardWrapperProps) {
       <Heading>Tableau de bord</Heading>
 
       <div className="flex flex-col items-stretch space-y-5">
-        {buttons.map(({ label, route }, i) => (
+        {buttons.map(({ label, route, icon }, i) => (
           <Button
+            key={i}
             className="font-bold"
             size="large"
-            key={i}
+            icon={<FontAwesomeIcon icon={icon} />}
             onClick={() => {
               router.push(route);
             }}
