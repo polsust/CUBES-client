@@ -49,7 +49,7 @@ export default function BottomTabs({ }: BottomTabsProps) {
     <div className="flex fixed bottom-0 justify-around w-full h-20 bg-secondary">
       {tabs.map(({ icon, route, isAllowed }, i) => {
         if (!isAllowed) return null;
-        const isActive = router.pathname.includes(route);
+        const isActive = router.pathname === route;
 
         return (
           <Button
