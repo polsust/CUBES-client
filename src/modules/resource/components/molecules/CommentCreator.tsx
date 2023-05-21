@@ -34,7 +34,7 @@ export default function CommentCreator({ resource }: CommentCreatorProps) {
 
   return (
     <CommentLayout>
-      <div className="flex flex-col items-end m-2 mt-5 ml-5 w-full">
+      <div className="flex flex-col items-end w-full">
         <Input.TextArea
           rows={4}
           placeholder="Ajouter un commentaire"
