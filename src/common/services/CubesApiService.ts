@@ -42,11 +42,9 @@ export function cubesApiService() {
     (error) => {
       if (typeof window === "undefined") return;
 
-      if (error.code) return message.error(error.message);
-
       // all responses are the same
       const dto = error.response.data as ResponseDto<unknown>;
-      message.error({ content: dto.message ?? error.message });
+      message.error(dto.message ?? error.message);
     }
   );
 
