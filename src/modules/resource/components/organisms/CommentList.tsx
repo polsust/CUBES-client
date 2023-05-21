@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { cubesApiService } from "@cubes/common/services/CubesApiService";
 import { CommentDto } from "cubes-api-client";
 import CommentLayout from "../molecules/CommentLayout";
+import Paper from "@cubes/common/components/atoms/Paper";
 
 interface CommentListProps {
   resource: IResource;
@@ -22,9 +23,13 @@ export default function CommentList({ resource }: CommentListProps) {
     },
   });
 
-  return comments?.map(({ content, userId }, i) => (
-    <CommentLayout key={i} userId={userId}>
-      {content}
-    </CommentLayout>
-  ));
+  return (
+    <>
+      {comments?.map(({ content, userId }, i) => (
+        <CommentLayout key={i} userId={userId} className="my-10">
+          <Paper className="ml-4">{content}</Paper>
+        </CommentLayout>
+      ))}
+    </>
+  );
 }
