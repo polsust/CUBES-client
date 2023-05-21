@@ -14,7 +14,7 @@ export default function ResourceCard({
 }: ResourceCardProps) {
   return (
     <Card
-      className="overflow-hidden m-1 w-full cursor-pointer md:m-2 md:w-80 lg:m-3 h-fit"
+      className="overflow-hidden m-1 w-full cursor-pointer md:m-2 md:w-80 lg:m-3 min-h-fit"
       onClick={onClick}
     >
       <h3>{title}</h3>
