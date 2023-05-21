@@ -8,6 +8,7 @@ import {
   CommentsApi,
   RessourceApi,
   AuthApi,
+  StatsApi,
 } from "cubes-api-client";
 import LocalStorageService from "./LocalStorageService";
 import AuthService from "@cubes/modules/auth/services/AuthService";
