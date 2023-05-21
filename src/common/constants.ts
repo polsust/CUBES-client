@@ -37,4 +37,14 @@ export const ROUTES = {
     requiresAuth: true,
     roles: [USER_ROLES.supAdmin, USER_ROLES.admin, USER_ROLES.moderator],
   },
+  stats: {
+    path: "/tableau-de-bord/statistiques",
+    requiresAuth: true,
+    roles: [USER_ROLES.supAdmin, USER_ROLES.admin, USER_ROLES.moderator],
+  },
+  catalogUsers: {
+    path: "/tableau-de-bord/catalogue-users",
+    requiresAuth: true,
+    roles: [USER_ROLES.supAdmin, USER_ROLES.admin, USER_ROLES.moderator],
+  },
 };
