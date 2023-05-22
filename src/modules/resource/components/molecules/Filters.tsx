@@ -29,7 +29,7 @@ export default function Filters({ setFilters }: FiltersProps) {
           }}
         />
         <FilterSelect
-          entityName="Code naf"
+          entityName="Secteur d'activite"
           data={nafCodes}
           onChange={(value) =>
             setFilters((oldFilters) => ({ ...oldFilters, nafCode: value }))
@@ -38,7 +38,7 @@ export default function Filters({ setFilters }: FiltersProps) {
       </div>
       <div>
         <FilterSelect
-          entityName="Code rome"
+          entityName="Domaine d'activite"
           data={romeCodes}
           onChange={(value) =>
             setFilters((oldFilters) => ({ ...oldFilters, romeCode: value }))
